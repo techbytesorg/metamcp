@@ -56,11 +56,14 @@ When you create a namespace:
 - **Automatic discovery**: Tools are discovered from all active servers
 - **Tool prefixing**: Tools are prefixed with server names to avoid conflicts
 - **Status control**: Enable/disable individual tools per namespace
+- **Tool overrides**: Customize tool name, title, and description for each namespace
 - **Tool filtering**: Inactive tools are automatically filtered from listings
 
 ### Tool Naming Convention
 
-Tools follow the pattern: `{ServerName}__{originalToolName}`
+Tools follow the pattern: `{ServerName}__{originalToolName}`. When chaining
+MetaMCP gateways, `originalToolName` can itself contain nested prefixes (for
+example, `OuterServer__InnerServer__my_tool`).
 
 Example: A `search` tool from "WebSearch" server becomes `WebSearch__search`
 

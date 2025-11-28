@@ -26,6 +26,53 @@ import { configService } from "../config.service";
 import { ConnectedClient } from "./client";
 import { getMcpServers } from "./fetch-metamcp";
 import { mcpServerPool } from "./mcp-server-pool";
+
+// ============================================================================
+// Pagination Configuration and Cache
+// ============================================================================
+
+/**
+ * Default page size for list_tools pagination.
+ * Can be overridden via MCP_TOOLS_PAGE_SIZE environment variable.
+ */
+const DEFAULT_TOOLS_PAGE_SIZE = 50;
+
+/**
+ * Get the configured page size for tools pagination.
+ */
+function getToolsPageSize(): number {
+  const envPageSize = process.env.MCP_TOOLS_PAGE_SIZE;
+  if (envPageSize) {
+    const parsed = parseInt(envPageSize, 10);
+    if (!isNaN(parsed) && parsed > 0) {
+      return parsed;
+    }
+  }
+  return DEFAULT_TOOLS_PAGE_SIZE;
+}
+
+/**
+ * Session-scoped cache for aggregated tools list.
+ * This cache stores the full list of tools fetched from all upstream servers
+ * to enable consistent pagination across multiple requests within a session.
+ * 
+ * Key: sessionId
+ * Value: { tools: Tool[], timestamp: number }
+ * 
+ * Cache is automatically cleaned up when session ends via cleanupSessionToolCache().
+ */
+const sessionToolCache: Map<string, { tools: Tool[], timestamp: number }> = new Map();
+
+/**
+ * Clean up the tool cache for a specific session.
+ * Should be called when a session is closed/cleaned up.
+ */
+export function cleanupSessionToolCache(sessionId: string): void {
+  if (sessionToolCache.has(sessionId)) {
+    sessionToolCache.delete(sessionId);
+    paginationLog.debug(`Cache cleanup: session=${sessionId.slice(0, 8)}...`);
+  }
+}
 import {
   createFilterCallToolMiddleware,
   createFilterListToolsMiddleware,
@@ -41,6 +88,7 @@ import {
   createToolOverridesListToolsMiddleware,
   mapOverrideNameToOriginal,
 } from "./metamcp-middleware/tool-overrides.functional";
+import { logger, paginationLog } from "./logger";
 import { parseToolName } from "./tool-name-parser";
 import { sanitizeName } from "./utils";
 
@@ -138,137 +186,181 @@ export const createServer = async (
     sessionId,
   };
 
-  // Original List Tools Handler
+  // Original List Tools Handler with Pagination Support
   const originalListToolsHandler: ListToolsHandler = async (
     request,
     context,
   ) => {
-    const serverParams = await getMcpServers(
-      context.namespaceUuid,
-      includeInactiveServers,
-    );
-    const allTools: Tool[] = [];
+    const pageSize = getToolsPageSize();
+    
+    // Parse cursor as offset (default to 0 for first page)
+    let offset = 0;
+    if (request.params?.cursor) {
+      const parsedOffset = parseInt(request.params.cursor, 10);
+      if (!isNaN(parsedOffset) && parsedOffset >= 0) {
+        offset = parsedOffset;
+      }
+    }
 
-    // Track visited servers to detect circular references - reset on each call
-    const visitedServers = new Set<string>();
+    // Check if we have cached tools for this session
+    const cached = sessionToolCache.get(context.sessionId);
+    let allTools: Tool[];
 
-    // We'll filter servers during processing after getting sessions to check actual MCP server names
-    const allServerEntries = Object.entries(serverParams);
+    if (cached) {
+      // Use cached tools for consistent pagination
+      allTools = cached.tools;
+      paginationLog.debug(`Cache hit: ${allTools.length} tools`);
+    } else {
+      // First request - fetch all tools from all servers and cache
+      paginationLog.debug(`Cache miss: fetching from upstream`);
+      
+      const serverParams = await getMcpServers(
+        context.namespaceUuid,
+        includeInactiveServers,
+      );
+      allTools = [];
 
-    await Promise.allSettled(
-      allServerEntries.map(async ([mcpServerUuid, params]) => {
-        // Skip if we've already visited this server to prevent circular references
-        if (visitedServers.has(mcpServerUuid)) {
-          return;
-        }
-        const session = await mcpServerPool.getSession(
-          context.sessionId,
-          mcpServerUuid,
-          params,
-          namespaceUuid,
-        );
-        if (!session) return;
+      // Track visited servers to detect circular references - reset on each call
+      const visitedServers = new Set<string>();
 
-        // Now check for self-referencing using the actual MCP server name
-        const serverVersion = session.client.getServerVersion();
-        const actualServerName = serverVersion?.name || params.name || "";
-        const ourServerName = `metamcp-unified-${namespaceUuid}`;
+      // We'll filter servers during processing after getting sessions to check actual MCP server names
+      const allServerEntries = Object.entries(serverParams);
 
-        if (actualServerName === ourServerName) {
-          console.log(
-            `Skipping self-referencing MetaMCP server: "${actualServerName}"`,
+      await Promise.allSettled(
+        allServerEntries.map(async ([mcpServerUuid, params]) => {
+          // Skip if we've already visited this server to prevent circular references
+          if (visitedServers.has(mcpServerUuid)) {
+            return;
+          }
+          const session = await mcpServerPool.getSession(
+            context.sessionId,
+            mcpServerUuid,
+            params,
+            namespaceUuid,
           );
-          return;
-        }
+          if (!session) return;
 
-        // Check basic self-reference patterns
-        if (isSameServerInstance(params, mcpServerUuid)) {
-          return;
-        }
+          // Now check for self-referencing using the actual MCP server name
+          const serverVersion = session.client.getServerVersion();
+          const actualServerName = serverVersion?.name || params.name || "";
+          const ourServerName = `metamcp-unified-${namespaceUuid}`;
 
-        // Mark this server as visited
-        visitedServers.add(mcpServerUuid);
+          if (actualServerName === ourServerName) {
+            logger.debug("Proxy", `Skipping self-reference: ${actualServerName}`);
+            return;
+          }
 
-        const capabilities = session.client.getServerCapabilities();
-        if (!capabilities?.tools) return;
+          // Check basic self-reference patterns
+          if (isSameServerInstance(params, mcpServerUuid)) {
+            return;
+          }
 
-        // Use name assigned by user, fallback to name from server
-        const serverName =
-          params.name || session.client.getServerVersion()?.name || "";
+          // Mark this server as visited
+          visitedServers.add(mcpServerUuid);
 
-        try {
-          // Paginated tool discovery - load all pages automatically
-          const allServerTools: Tool[] = [];
-          let cursor: string | undefined = undefined;
-          let hasMore = true;
+          const capabilities = session.client.getServerCapabilities();
+          if (!capabilities?.tools) return;
 
-          while (hasMore) {
-            const result: z.infer<typeof ListToolsResultSchema> =
-              await session.client.request(
-                {
-                  method: "tools/list",
-                  params: {
-                    cursor: cursor,
-                    _meta: request.params?._meta,
+          // Use name assigned by user, fallback to name from server
+          const serverName =
+            params.name || session.client.getServerVersion()?.name || "";
+
+          try {
+            // Paginated tool discovery from upstream - load all pages automatically
+            const allServerTools: Tool[] = [];
+            let upstreamCursor: string | undefined = undefined;
+            let hasMore = true;
+
+            while (hasMore) {
+              const result: z.infer<typeof ListToolsResultSchema> =
+                await session.client.request(
+                  {
+                    method: "tools/list",
+                    params: {
+                      cursor: upstreamCursor,
+                      _meta: request.params?._meta,
+                    },
                   },
-                },
-                ListToolsResultSchema,
-              );
+                  ListToolsResultSchema,
+                );
 
-            if (result.tools && result.tools.length > 0) {
-              allServerTools.push(...result.tools);
-            }
-
-            cursor = result.nextCursor;
-            hasMore = !!result.nextCursor;
-          }
-
-          // Save original tools to database (before middleware processing)
-          // This ensures we only save the actual tool names, not override names
-          // Filter out tools that are overrides of existing tools to prevent duplicates
-          if (allServerTools.length > 0) {
-            try {
-              const toolsToSave = await filterOutOverrideTools(
-                allServerTools,
-                namespaceUuid,
-                serverName,
-              );
-
-              if (toolsToSave.length > 0) {
-                await toolsImplementations.create({
-                  tools: toolsToSave,
-                  mcpServerUuid: mcpServerUuid,
-                });
+              if (result.tools && result.tools.length > 0) {
+                allServerTools.push(...result.tools);
               }
-            } catch (dbError) {
-              console.error(
-                `Error saving tools to database for server ${serverName}:`,
-                dbError,
-              );
+
+              upstreamCursor = result.nextCursor;
+              hasMore = !!result.nextCursor;
             }
+
+            // Save original tools to database (before middleware processing)
+            // This ensures we only save the actual tool names, not override names
+            // Filter out tools that are overrides of existing tools to prevent duplicates
+            if (allServerTools.length > 0) {
+              try {
+                const toolsToSave = await filterOutOverrideTools(
+                  allServerTools,
+                  namespaceUuid,
+                  serverName,
+                );
+
+                if (toolsToSave.length > 0) {
+                  await toolsImplementations.create({
+                    tools: toolsToSave,
+                    mcpServerUuid: mcpServerUuid,
+                  });
+                }
+              } catch (dbError) {
+                console.error(
+                  `Error saving tools to database for server ${serverName}:`,
+                  dbError,
+                );
+              }
+            }
+
+            // Use original tools for client response (middleware will be applied later)
+            const toolsWithSource = allServerTools.map((tool) => {
+              const toolName = `${sanitizeName(serverName)}__${tool.name}`;
+              toolToClient[toolName] = session;
+              toolToServerUuid[toolName] = mcpServerUuid;
+
+              return {
+                ...tool,
+                name: toolName,
+                description: tool.description,
+              };
+            });
+
+            allTools.push(...toolsWithSource);
+          } catch (error) {
+            console.error(`Error fetching tools from: ${serverName}`, error);
           }
+        }),
+      );
 
-          // Use original tools for client response (middleware will be applied later)
-          const toolsWithSource = allServerTools.map((tool) => {
-            const toolName = `${sanitizeName(serverName)}__${tool.name}`;
-            toolToClient[toolName] = session;
-            toolToServerUuid[toolName] = mcpServerUuid;
+      // Cache the full tool list for this session
+      sessionToolCache.set(context.sessionId, {
+        tools: allTools,
+        timestamp: Date.now(),
+      });
+      paginationLog.info(`Cached ${allTools.length} tools for session`);
+    }
 
-            return {
-              ...tool,
-              name: toolName,
-              description: tool.description,
-            };
-          });
+    // Apply pagination: slice the tools array based on offset and page size
+    const totalTools = allTools.length;
+    const pageTools = allTools.slice(offset, offset + pageSize);
+    
+    // Calculate nextCursor: only set if there are more tools after this page
+    const nextOffset = offset + pageSize;
+    const nextCursor = nextOffset < totalTools ? String(nextOffset) : undefined;
 
-          allTools.push(...toolsWithSource);
-        } catch (error) {
-          console.error(`Error fetching tools from: ${serverName}`, error);
-        }
-      }),
+    paginationLog.debug(
+      `Page: offset=${offset} size=${pageTools.length}/${totalTools} next=${nextCursor ?? "end"}`,
     );
 
-    return { tools: allTools };
+    return { 
+      tools: pageTools,
+      nextCursor: nextCursor,
+    };
   };
 
   // Original Call Tool Handler
@@ -509,17 +601,11 @@ export const createServer = async (
       ([uuid, params]) => {
         // Skip if we've already visited this server to prevent circular references
         if (visitedServers.has(uuid)) {
-          console.log(
-            `Skipping already visited server in prompts: ${params.name || uuid}`,
-          );
           return false;
         }
 
         // Check if this server is the same instance to prevent self-referencing
         if (isSameServerInstance(params, uuid)) {
-          console.log(
-            `Skipping self-referencing server in prompts: ${params.name || uuid}`,
-          );
           return false;
         }
 
@@ -545,9 +631,6 @@ export const createServer = async (
         const ourServerName = `metamcp-unified-${namespaceUuid}`;
 
         if (actualServerName === ourServerName) {
-          console.log(
-            `Skipping self-referencing MetaMCP server in prompts: "${actualServerName}"`,
-          );
           return;
         }
 
@@ -610,17 +693,11 @@ export const createServer = async (
       ([uuid, params]) => {
         // Skip if we've already visited this server to prevent circular references
         if (visitedServers.has(uuid)) {
-          console.log(
-            `Skipping already visited server in resources: ${params.name || uuid}`,
-          );
           return false;
         }
 
         // Check if this server is the same instance to prevent self-referencing
         if (isSameServerInstance(params, uuid)) {
-          console.log(
-            `Skipping self-referencing server in resources: ${params.name || uuid}`,
-          );
           return false;
         }
 
@@ -646,9 +723,6 @@ export const createServer = async (
         const ourServerName = `metamcp-unified-${namespaceUuid}`;
 
         if (actualServerName === ourServerName) {
-          console.log(
-            `Skipping self-referencing MetaMCP server in resources: "${actualServerName}"`,
-          );
           return;
         }
 
@@ -741,17 +815,11 @@ export const createServer = async (
         ([uuid, params]) => {
           // Skip if we've already visited this server to prevent circular references
           if (visitedServers.has(uuid)) {
-            console.log(
-              `Skipping already visited server in resource templates: ${params.name || uuid}`,
-            );
             return false;
           }
 
           // Check if this server is the same instance to prevent self-referencing
           if (isSameServerInstance(params, uuid)) {
-            console.log(
-              `Skipping self-referencing server in resource templates: ${params.name || uuid}`,
-            );
             return false;
           }
 
@@ -777,9 +845,6 @@ export const createServer = async (
           const ourServerName = `metamcp-unified-${namespaceUuid}`;
 
           if (actualServerName === ourServerName) {
-            console.log(
-              `Skipping self-referencing MetaMCP server in resource templates: "${actualServerName}"`,
-            );
             return;
           }
 
@@ -828,6 +893,8 @@ export const createServer = async (
   );
 
   const cleanup = async () => {
+    // Cleanup pagination cache for this session
+    cleanupSessionToolCache(sessionId);
     // Cleanup is now handled by the pool
     await mcpServerPool.cleanupSession(sessionId);
   };

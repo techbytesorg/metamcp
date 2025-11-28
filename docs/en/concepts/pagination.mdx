@@ -1,0 +1,64 @@
+---
+title: "Tools Pagination"
+description: "Server-side pagination for list_tools() to improve performance with large tool sets"
+---
+
+# Tools Pagination
+
+MetaMCP implements server-side pagination for `list_tools()` responses, enabling efficient handling of large tool sets (1000+ tools).
+
+## Why Pagination?
+
+Without pagination, fetching 2,000+ tools takes **43+ seconds** due to JSON serialization and parsing overhead. With pagination:
+- **First page**: ~1-2 seconds (50 tools)
+- **Agent early exit**: If tools are found in first page, no further fetches needed
+- **Full fetch**: ~5-10 seconds across all pages
+
+## How It Works
+
+1. Client calls `list_tools()` with optional `cursor` parameter
+2. Server returns a page of tools (default: 50) with `nextCursor`
+3. Client fetches next page using `nextCursor` until `nextCursor` is null
+
+```
+Request: { method: "tools/list", params: {} }
+Response: { tools: [...50 tools...], nextCursor: "50" }
+
+Request: { method: "tools/list", params: { cursor: "50" } }
+Response: { tools: [...50 tools...], nextCursor: "100" }
+
+Request: { method: "tools/list", params: { cursor: "100" } }
+Response: { tools: [...remaining tools...], nextCursor: null }
+```
+
+## Configuration
+
+Set page size via environment variable:
+
+```bash
+# Default: 50 tools per page
+MCP_TOOLS_PAGE_SIZE=50
+
+# Larger pages (fewer requests, larger responses)
+MCP_TOOLS_PAGE_SIZE=100
+
+# Smaller pages (faster first response)
+MCP_TOOLS_PAGE_SIZE=25
+```
+
+## Caching
+
+Tools are cached per session after the first fetch:
+- First request fetches all tools from upstream servers and caches
+- Subsequent pagination requests use cached list for consistency
+- Cache is automatically cleaned up when session ends
+
+## Client Compatibility
+
+**Backward compatible**: Clients that don't use pagination receive the first page (50 tools).
+
+**Pagination-aware clients** (like OAP LangGraph agent) can:
+- Fetch pages incrementally
+- Exit early once requested tools are found
+- Reduce initialization time from 43s to &lt;2s
+

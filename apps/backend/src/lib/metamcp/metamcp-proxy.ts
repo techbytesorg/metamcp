@@ -21,14 +21,13 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import { z } from "zod";
 
-import { toolsImplementations } from "../../trpc/tools.impl";
 import { configService } from "../config.service";
 import { ConnectedClient } from "./client";
 import { getMcpServers } from "./fetch-metamcp";
 import { mcpServerPool } from "./mcp-server-pool";
 
 // ============================================================================
-// Pagination Configuration and Cache
+// Pagination Configuration
 // ============================================================================
 
 /**
@@ -51,28 +50,8 @@ function getToolsPageSize(): number {
   return DEFAULT_TOOLS_PAGE_SIZE;
 }
 
-/**
- * Session-scoped cache for aggregated tools list.
- * This cache stores the full list of tools fetched from all upstream servers
- * to enable consistent pagination across multiple requests within a session.
- * 
- * Key: sessionId
- * Value: { tools: Tool[], timestamp: number }
- * 
- * Cache is automatically cleaned up when session ends via cleanupSessionToolCache().
- */
-const sessionToolCache: Map<string, { tools: Tool[], timestamp: number }> = new Map();
-
-/**
- * Clean up the tool cache for a specific session.
- * Should be called when a session is closed/cleaned up.
- */
-export function cleanupSessionToolCache(sessionId: string): void {
-  if (sessionToolCache.has(sessionId)) {
-    sessionToolCache.delete(sessionId);
-    paginationLog.debug(`Cache cleanup: session=${sessionId.slice(0, 8)}...`);
-  }
-}
+// Note: Tool caching is now handled at the namespace level via namespace-tool-cache.ts
+// This enables cache sharing across all sessions in a namespace.
 import {
   createFilterCallToolMiddleware,
   createFilterListToolsMiddleware,
@@ -86,61 +65,15 @@ import {
 import {
   createToolOverridesCallToolMiddleware,
   createToolOverridesListToolsMiddleware,
-  mapOverrideNameToOriginal,
 } from "./metamcp-middleware/tool-overrides.functional";
 import { logger, paginationLog } from "./logger";
+import {
+  getNamespaceTools,
+  warmNamespaceCache,
+} from "./namespace-tool-cache";
 import { parseToolName } from "./tool-name-parser";
+import { fetchAllToolsFromUpstream } from "./tool-fetcher";
 import { sanitizeName } from "./utils";
-
-/**
- * Filter out tools that are overrides of existing tools to prevent duplicates in database
- * Uses the existing tool overrides cache for optimal performance
- */
-async function filterOutOverrideTools(
-  tools: Tool[],
-  namespaceUuid: string,
-  serverName: string,
-): Promise<Tool[]> {
-  if (!tools || tools.length === 0) {
-    return tools;
-  }
-
-  const filteredTools: Tool[] = [];
-
-  await Promise.allSettled(
-    tools.map(async (tool) => {
-      try {
-        // Check if this tool name is actually an override name for an existing tool
-        // by using the existing mapOverrideNameToOriginal function
-        const fullToolName = `${sanitizeName(serverName)}__${tool.name}`;
-        const originalName = await mapOverrideNameToOriginal(
-          fullToolName,
-          namespaceUuid,
-          true, // use cache
-        );
-
-        // If the original name is different from the current name,
-        // this tool is an override and should be filtered out
-        if (originalName !== fullToolName) {
-          // This is an override, skip it (don't save to database)
-          return;
-        }
-
-        // This is not an override, include it
-        filteredTools.push(tool);
-      } catch (error) {
-        console.error(
-          `Error checking if tool ${tool.name} is an override:`,
-          error,
-        );
-        // On error, include the tool (fail-safe behavior)
-        filteredTools.push(tool);
-      }
-    }),
-  );
-
-  return filteredTools;
-}
 
 export const createServer = async (
   namespaceUuid: string,
@@ -187,6 +120,7 @@ export const createServer = async (
   };
 
   // Original List Tools Handler with Pagination Support
+  // Uses namespace-level cache for fast responses across all sessions
   const originalListToolsHandler: ListToolsHandler = async (
     request,
     context,
@@ -202,147 +136,40 @@ export const createServer = async (
       }
     }
 
-    // Check if we have cached tools for this session
-    const cached = sessionToolCache.get(context.sessionId);
     let allTools: Tool[];
 
-    if (cached) {
-      // Use cached tools for consistent pagination
-      allTools = cached.tools;
-      paginationLog.debug(`Cache hit: ${allTools.length} tools`);
+    // Step 1: Check namespace-level cache (shared across all sessions)
+    // Debug: Log the exact namespace UUID being used
+    console.log(`[DEBUG] Handler checking cache for namespaceUuid: ${context.namespaceUuid}`);
+    const namespaceCached = getNamespaceTools(context.namespaceUuid);
+
+    if (namespaceCached) {
+      // Namespace cache hit - use cached tools directly
+      // Skip building session mappings here - they will be built lazily
+      // when tools are actually called (call_tool handler has fallback routing)
+      console.log(`[Pagination] Cache HIT: returning ${namespaceCached.length} tools (mappings will be built lazily)`);
+      allTools = namespaceCached;
     } else {
-      // First request - fetch all tools from all servers and cache
-      paginationLog.debug(`Cache miss: fetching from upstream`);
-      
-      const serverParams = await getMcpServers(
+      // Namespace cache miss - warm cache using deduplication
+      console.log(`[Pagination] Cache MISS: warming cache for namespace ${context.namespaceUuid.slice(0, 8)}...`);
+
+      // warmNamespaceCache handles concurrent request deduplication
+      // Note: We skip building mappings here - they will be built lazily when tools are called
+      const fetchedTools = await warmNamespaceCache(
         context.namespaceUuid,
-        includeInactiveServers,
-      );
-      allTools = [];
-
-      // Track visited servers to detect circular references - reset on each call
-      const visitedServers = new Set<string>();
-
-      // We'll filter servers during processing after getting sessions to check actual MCP server names
-      const allServerEntries = Object.entries(serverParams);
-
-      await Promise.allSettled(
-        allServerEntries.map(async ([mcpServerUuid, params]) => {
-          // Skip if we've already visited this server to prevent circular references
-          if (visitedServers.has(mcpServerUuid)) {
-            return;
-          }
-          const session = await mcpServerPool.getSession(
+        async () => {
+          const result = await fetchAllToolsFromUpstream(
+            context.namespaceUuid,
             context.sessionId,
-            mcpServerUuid,
-            params,
-            namespaceUuid,
+            includeInactiveServers,
           );
-          if (!session) return;
-
-          // Now check for self-referencing using the actual MCP server name
-          const serverVersion = session.client.getServerVersion();
-          const actualServerName = serverVersion?.name || params.name || "";
-          const ourServerName = `metamcp-unified-${namespaceUuid}`;
-
-          if (actualServerName === ourServerName) {
-            logger.debug("Proxy", `Skipping self-reference: ${actualServerName}`);
-            return;
-          }
-
-          // Check basic self-reference patterns
-          if (isSameServerInstance(params, mcpServerUuid)) {
-            return;
-          }
-
-          // Mark this server as visited
-          visitedServers.add(mcpServerUuid);
-
-          const capabilities = session.client.getServerCapabilities();
-          if (!capabilities?.tools) return;
-
-          // Use name assigned by user, fallback to name from server
-          const serverName =
-            params.name || session.client.getServerVersion()?.name || "";
-
-          try {
-            // Paginated tool discovery from upstream - load all pages automatically
-            const allServerTools: Tool[] = [];
-            let upstreamCursor: string | undefined = undefined;
-            let hasMore = true;
-
-            while (hasMore) {
-              const result: z.infer<typeof ListToolsResultSchema> =
-                await session.client.request(
-                  {
-                    method: "tools/list",
-                    params: {
-                      cursor: upstreamCursor,
-                      _meta: request.params?._meta,
-                    },
-                  },
-                  ListToolsResultSchema,
-                );
-
-              if (result.tools && result.tools.length > 0) {
-                allServerTools.push(...result.tools);
-              }
-
-              upstreamCursor = result.nextCursor;
-              hasMore = !!result.nextCursor;
-            }
-
-            // Save original tools to database (before middleware processing)
-            // This ensures we only save the actual tool names, not override names
-            // Filter out tools that are overrides of existing tools to prevent duplicates
-            if (allServerTools.length > 0) {
-              try {
-                const toolsToSave = await filterOutOverrideTools(
-                  allServerTools,
-                  namespaceUuid,
-                  serverName,
-                );
-
-                if (toolsToSave.length > 0) {
-                  await toolsImplementations.create({
-                    tools: toolsToSave,
-                    mcpServerUuid: mcpServerUuid,
-                  });
-                }
-              } catch (dbError) {
-                console.error(
-                  `Error saving tools to database for server ${serverName}:`,
-                  dbError,
-                );
-              }
-            }
-
-            // Use original tools for client response (middleware will be applied later)
-            const toolsWithSource = allServerTools.map((tool) => {
-              const toolName = `${sanitizeName(serverName)}__${tool.name}`;
-              toolToClient[toolName] = session;
-              toolToServerUuid[toolName] = mcpServerUuid;
-
-              return {
-                ...tool,
-                name: toolName,
-                description: tool.description,
-              };
-            });
-
-            allTools.push(...toolsWithSource);
-          } catch (error) {
-            console.error(`Error fetching tools from: ${serverName}`, error);
-          }
-        }),
+          // Note: We DON'T apply mappings here anymore - lazy loading instead
+          return result.tools;
+        },
       );
 
-      // Cache the full tool list for this session
-      sessionToolCache.set(context.sessionId, {
-        tools: allTools,
-        timestamp: Date.now(),
-      });
-      paginationLog.info(`Cached ${allTools.length} tools for session`);
+      allTools = fetchedTools;
+      console.log(`[Pagination] Warming complete: ${allTools.length} tools`);
     }
 
     // Apply pagination: slice the tools array based on offset and page size
@@ -893,9 +720,8 @@ export const createServer = async (
   );
 
   const cleanup = async () => {
-    // Cleanup pagination cache for this session
-    cleanupSessionToolCache(sessionId);
-    // Cleanup is now handled by the pool
+    // Note: Namespace-level tool cache persists across sessions
+    // It's only invalidated when MCP server config changes
     await mcpServerPool.cleanupSession(sessionId);
   };
 

@@ -1,8 +1,15 @@
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 
 import { configService } from "../config.service";
+import { logger } from "./logger";
 import { mcpServerPool } from "./mcp-server-pool";
 import { createServer } from "./metamcp-proxy";
+import {
+  invalidateNamespaceCache,
+  removeNamespaceCache,
+  warmNamespaceCache,
+} from "./namespace-tool-cache";
+import { fetchAllToolsFromUpstream } from "./tool-fetcher";
 
 export interface MetaMcpServerInstance {
   server: Server;
@@ -167,7 +174,36 @@ export class MetaMcpServerPool {
 
       this.idleServers[namespaceUuid] = wrappedServer;
       console.log(`Created idle MetaMCP server for namespace ${namespaceUuid}`);
+
+      // Pre-warm the tool cache in background (non-blocking)
+      this.preWarmToolCache(namespaceUuid, tempSessionId, includeInactiveServers);
     }
+  }
+
+  /**
+   * Pre-warm the namespace tool cache in background.
+   * This is fire-and-forget - errors are logged but don't fail server creation.
+   */
+  private preWarmToolCache(
+    namespaceUuid: string,
+    sessionId: string,
+    includeInactiveServers: boolean,
+  ): void {
+    console.log(`[MetaMcpPool] Starting pre-warm for namespace: ${namespaceUuid}`);
+    warmNamespaceCache(namespaceUuid, async () => {
+      console.log(`[MetaMcpPool] Pre-warm fetch starting for namespace: ${namespaceUuid}`);
+      const result = await fetchAllToolsFromUpstream(
+        namespaceUuid,
+        sessionId,
+        includeInactiveServers,
+      );
+      console.log(`[MetaMcpPool] Pre-warm fetch completed for namespace: ${namespaceUuid}, tools: ${result.tools.length}`);
+      return result.tools;
+    }).then(() => {
+      console.log(`[MetaMcpPool] Pre-warm SUCCESSFUL for namespace: ${namespaceUuid}`);
+    }).catch((error) => {
+      logger.warn("MetaMcpPool", `Pre-warming tool cache failed for ${namespaceUuid}`, error);
+    });
   }
 
   /**
@@ -202,6 +238,9 @@ export class MetaMcpServerPool {
           console.log(
             `Created background idle MetaMCP server for namespace ${namespaceUuid}`,
           );
+
+          // Pre-warm the tool cache in background (non-blocking)
+          this.preWarmToolCache(namespaceUuid, tempSessionId, includeInactiveServers);
         } else if (newServer) {
           // We already have an idle server, cleanup the extra one
           newServer.cleanup().catch((error) => {
@@ -354,6 +393,9 @@ export class MetaMcpServerPool {
   ): Promise<void> {
     console.log(`Invalidating idle server for namespace ${namespaceUuid}`);
 
+    // Invalidate the namespace tool cache (will be re-warmed with new server)
+    invalidateNamespaceCache(namespaceUuid);
+
     // Cleanup existing idle server if it exists
     const existingIdleServer = this.idleServers[namespaceUuid];
     if (existingIdleServer) {
@@ -374,7 +416,7 @@ export class MetaMcpServerPool {
     // Remove from creating set if it's in progress
     this.creatingIdleServers.delete(namespaceUuid);
 
-    // Create a new idle server with updated configuration
+    // Create a new idle server with updated configuration (triggers cache pre-warming)
     await this.createIdleServer(namespaceUuid, includeInactiveServers);
   }
 
@@ -398,6 +440,9 @@ export class MetaMcpServerPool {
    */
   async cleanupIdleServer(namespaceUuid: string): Promise<void> {
     console.log(`Cleaning up idle server for namespace ${namespaceUuid}`);
+
+    // Remove the namespace tool cache (namespace is being deleted)
+    removeNamespaceCache(namespaceUuid);
 
     // Cleanup existing idle server if it exists
     const existingIdleServer = this.idleServers[namespaceUuid];

@@ -46,12 +46,87 @@ MCP_TOOLS_PAGE_SIZE=100
 MCP_TOOLS_PAGE_SIZE=25
 ```
 
-## Caching
+## Namespace-Level Caching
 
-Tools are cached per session after the first fetch:
-- First request fetches all tools from upstream servers and caches
-- Subsequent pagination requests use cached list for consistency
-- Cache is automatically cleaned up when session ends
+Tools are cached at the **namespace level** for maximum performance:
+
+### How It Works
+
+1. **Pre-warming**: When an idle MetaMCP server is created, tools are fetched in the background
+2. **Cache sharing**: All sessions in a namespace share the same cached tool list
+3. **Fast responses**: Subsequent `list_tools()` calls return cached data in ~50ms
+
+### Cache Lifecycle
+
+- **Pre-warmed on startup**: Cache is populated when idle servers are created
+- **Invalidated on config change**: Cache is refreshed when MCP servers are added/updated/removed
+- **TTL-based expiration**: Cache expires after 1 hour (configurable)
+- **Shared across sessions**: Multiple agent connections reuse the same cache
+
+### Configuration
+
+```bash
+# Cache TTL in seconds (default: 3600 = 1 hour)
+# Set to 0 to disable TTL (never expires until invalidated)
+MCP_TOOLS_CACHE_TTL=3600
+```
+
+### Performance Impact
+
+| Scenario | Without Namespace Cache | With Namespace Cache |
+|----------|------------------------|---------------------|
+| First page (cold) | 38-39s | 38-39s |
+| First page (warm) | 38-39s | **~50ms** |
+| All pages (warm) | 38-39s | **~3s** |
+
+The key improvement: With namespace-level caching, new agent sessions get instant cache hits instead of fetching from upstream servers.
+
+## Cache Staleness & Risk Mitigation
+
+### When Does Cache Become Stale?
+
+The namespace cache may not reflect the latest tools from upstream MCP servers in these scenarios:
+
+| Scenario | Example | Cache Behavior |
+|----------|---------|----------------|
+| **Upstream server adds tools** | Arcade adds 100 new tools | Cache won't reflect until TTL expires or invalidated |
+| **Tool schema changes** | Tool parameters updated | Same as above |
+| **Server restart** | MetaMCP container restarts | Cache is cleared, re-warmed on first request |
+
+### Automatic Cache Refresh
+
+Cache is automatically refreshed when:
+
+1. **TTL expires** (default: 1 hour) - Next request triggers re-fetch
+2. **Config change** - Adding/editing/removing MCP servers invalidates cache
+3. **Server restart** - Fresh cache is pre-warmed
+
+### Manual Cache Refresh Options
+
+For immediate refresh without waiting for TTL:
+
+1. **Edit MCP server config** - Any change (even reverting) triggers invalidation
+2. **Restart MetaMCP** - Clears all caches and pre-warms fresh data
+3. **Shorter TTL** - Set `MCP_TOOLS_CACHE_TTL=300` for 5-minute refresh
+
+### Recommendations
+
+| Use Case | Recommended TTL | Rationale |
+|----------|----------------|-----------|
+| **Production** | 3600 (1 hour) | Good balance of performance and freshness |
+| **Development** | 300 (5 min) | Faster feedback on upstream changes |
+| **Stable tools** | 0 (no TTL) | Never expires until manually invalidated |
+| **Volatile tools** | 60 (1 min) | Near real-time sync, higher load |
+
+### Monitoring
+
+Check cache status via logs:
+
+```
+[ToolCache] Cache HIT: 2852 tools for 2c714f73... (age=5159ms)
+[ToolCache] Cache already warm for 2c714f73..., skipping warm
+[ToolCache] Cache MISS: warming cache for namespace 2c714f73...
+```
 
 ## Client Compatibility
 

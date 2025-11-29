@@ -102,3 +102,10 @@ export const poolLog = {
   error: (msg: string, error?: unknown) => logger.error("Pool", msg, error),
 };
 
+export const toolCacheLog = {
+  debug: (msg: string, data?: unknown) => logger.debug("ToolCache", msg, data),
+  info: (msg: string, data?: unknown) => logger.info("ToolCache", msg, data),
+  warn: (msg: string, data?: unknown) => logger.warn("ToolCache", msg, data),
+  error: (msg: string, error?: unknown) => logger.error("ToolCache", msg, error),
+};
+

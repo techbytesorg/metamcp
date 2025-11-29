@@ -2,12 +2,13 @@ import { Tool } from "@modelcontextprotocol/sdk/types.js";
 import { logger } from "./logger";
 
 // ============================================================================
-// Namespace-Level Tool Cache
+// Namespace-Level Tool Cache with Background Refresh
 // ============================================================================
 // This cache stores aggregated tools at the namespace level, enabling:
 // 1. Cache sharing across all sessions in a namespace
 // 2. Pre-warming when idle servers are created
 // 3. Fast list_tools() responses (~50ms vs 38-39s)
+// 4. Background refresh to keep cache always warm
 // ============================================================================
 
 type CacheStatus = "warming" | "ready" | "stale";
@@ -33,10 +34,33 @@ const namespaceToolCache: Map<string, NamespaceToolCacheEntry> = new Map();
 const warmingPromises: Map<string, Promise<Tool[]>> = new Map();
 
 /**
+ * Store fetch functions for background refresh.
+ * Key: namespaceUuid
+ * Value: Fetch function that returns tools
+ */
+const refreshFunctions: Map<string, () => Promise<Tool[]>> = new Map();
+
+/**
+ * Background refresh timer
+ */
+let backgroundRefreshTimer: NodeJS.Timeout | null = null;
+
+/**
  * Default TTL for cached tools (1 hour in milliseconds).
  * Can be overridden via MCP_TOOLS_CACHE_TTL env var (in seconds).
  */
 const DEFAULT_CACHE_TTL_MS = 3600 * 1000; // 1 hour
+
+/**
+ * Refresh threshold - refresh when cache age exceeds this % of TTL.
+ * Default: 80% (refresh 12 min before 1-hour expiry)
+ */
+const REFRESH_THRESHOLD = 0.8;
+
+/**
+ * Background refresh interval (check every 5 minutes)
+ */
+const BACKGROUND_REFRESH_INTERVAL_MS = 5 * 60 * 1000;
 
 /**
  * Get configured cache TTL in milliseconds.
@@ -133,6 +157,7 @@ export function invalidateNamespaceCache(namespaceUuid: string): void {
 export function removeNamespaceCache(namespaceUuid: string): void {
   namespaceToolCache.delete(namespaceUuid);
   warmingPromises.delete(namespaceUuid);
+  refreshFunctions.delete(namespaceUuid);
   logger.debug("ToolCache", `Removed cache for namespace ${namespaceUuid.slice(0, 8)}...`);
 }
 
@@ -203,6 +228,9 @@ export async function warmNamespaceCache(
     console.log(`[ToolCache] No promise found after retry for ${namespaceUuid.slice(0, 8)}..., starting new warm`);
   }
 
+  // Store the fetch function for background refresh
+  refreshFunctions.set(namespaceUuid, fetchFn);
+
   // Mark as warming BEFORE creating the promise to minimize race window
   namespaceToolCache.set(namespaceUuid, {
     tools: [],
@@ -239,6 +267,9 @@ export async function warmNamespaceCache(
   // Store promise IMMEDIATELY after creation
   warmingPromises.set(namespaceUuid, warmPromise);
   console.log(`[ToolCache] Stored warming promise for ${namespaceUuid.slice(0, 8)}...`);
+  
+  // Start background refresh if not already running
+  startBackgroundRefresh();
   
   return warmPromise;
 }
@@ -288,6 +319,134 @@ export function getCacheStats(): {
 export function clearAllNamespaceCache(): void {
   namespaceToolCache.clear();
   warmingPromises.clear();
+  refreshFunctions.clear();
+  stopBackgroundRefresh();
   logger.warn("ToolCache", "Cleared all namespace tool caches");
+}
+
+// ============================================================================
+// Background Refresh
+// ============================================================================
+// Proactively refresh cache entries before they expire to ensure
+// clients always get fast responses.
+// ============================================================================
+
+/**
+ * Check if a cache entry needs proactive refresh.
+ * Returns true if entry is past the refresh threshold (default 80% of TTL).
+ */
+function needsProactiveRefresh(entry: NamespaceToolCacheEntry): boolean {
+  const ttl = getCacheTTL();
+  // TTL=0 means never expires - no proactive refresh needed
+  if (ttl === 0) {
+    return false;
+  }
+  const age = Date.now() - entry.timestamp;
+  const threshold = ttl * REFRESH_THRESHOLD;
+  return age > threshold && entry.status === "ready";
+}
+
+/**
+ * Perform background refresh for all cache entries that need it.
+ * This runs periodically to keep caches warm.
+ */
+async function performBackgroundRefresh(): Promise<void> {
+  const ttl = getCacheTTL();
+  if (ttl === 0) {
+    // TTL disabled, no background refresh needed
+    return;
+  }
+
+  const namespacesToRefresh: string[] = [];
+  
+  // Find entries that need refresh
+  namespaceToolCache.forEach((entry, namespaceUuid) => {
+    if (needsProactiveRefresh(entry)) {
+      namespacesToRefresh.push(namespaceUuid);
+    }
+  });
+
+  if (namespacesToRefresh.length === 0) {
+    return;
+  }
+
+  console.log(`[ToolCache] Background refresh: ${namespacesToRefresh.length} namespace(s) need refresh`);
+
+  // Refresh each namespace
+  for (const namespaceUuid of namespacesToRefresh) {
+    const fetchFn = refreshFunctions.get(namespaceUuid);
+    if (!fetchFn) {
+      console.log(`[ToolCache] Background refresh: No fetch function for ${namespaceUuid.slice(0, 8)}..., skipping`);
+      continue;
+    }
+
+    // Check if already warming (don't double-refresh)
+    if (warmingPromises.has(namespaceUuid)) {
+      console.log(`[ToolCache] Background refresh: ${namespaceUuid.slice(0, 8)}... already warming, skipping`);
+      continue;
+    }
+
+    try {
+      console.log(`[ToolCache] Background refresh: Refreshing ${namespaceUuid.slice(0, 8)}...`);
+      const startTime = Date.now();
+      
+      // Directly fetch and update (don't go through warmNamespaceCache to avoid recursion)
+      const tools = await fetchFn();
+      setNamespaceTools(namespaceUuid, tools);
+      
+      const duration = Date.now() - startTime;
+      console.log(`[ToolCache] Background refresh: ${namespaceUuid.slice(0, 8)}... done (${tools.length} tools in ${duration}ms)`);
+    } catch (error) {
+      // Don't invalidate on background refresh failure - keep serving stale data
+      console.error(`[ToolCache] Background refresh failed for ${namespaceUuid.slice(0, 8)}...`, error);
+    }
+  }
+}
+
+/**
+ * Start the background refresh timer.
+ * Safe to call multiple times - will not create duplicate timers.
+ */
+export function startBackgroundRefresh(): void {
+  if (backgroundRefreshTimer) {
+    return; // Already running
+  }
+
+  const ttl = getCacheTTL();
+  if (ttl === 0) {
+    console.log("[ToolCache] Background refresh disabled (TTL=0)");
+    return;
+  }
+
+  console.log(`[ToolCache] Starting background refresh (interval: ${BACKGROUND_REFRESH_INTERVAL_MS / 1000}s, TTL: ${ttl / 1000}s)`);
+  
+  backgroundRefreshTimer = setInterval(async () => {
+    try {
+      await performBackgroundRefresh();
+    } catch (error) {
+      console.error("[ToolCache] Background refresh error:", error);
+    }
+  }, BACKGROUND_REFRESH_INTERVAL_MS);
+
+  // Don't prevent Node.js from exiting
+  backgroundRefreshTimer.unref();
+}
+
+/**
+ * Stop the background refresh timer.
+ */
+export function stopBackgroundRefresh(): void {
+  if (backgroundRefreshTimer) {
+    clearInterval(backgroundRefreshTimer);
+    backgroundRefreshTimer = null;
+    console.log("[ToolCache] Stopped background refresh");
+  }
+}
+
+/**
+ * Check if background refresh is running.
+ */
+export function isBackgroundRefreshRunning(): boolean {
+  return backgroundRefreshTimer !== null;
 }
 

@@ -41,6 +41,9 @@ import {
   warmNamespaceCache,
   clearAllNamespaceCache,
   getCacheStats,
+  startBackgroundRefresh,
+  stopBackgroundRefresh,
+  isBackgroundRefreshRunning,
 } from '../../lib/metamcp/namespace-tool-cache';
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 
@@ -376,6 +379,68 @@ describe('Namespace Tool Cache Integration', () => {
       
       // 10 paginated requests should complete very fast
       expect(totalDuration).toBeLessThan(100);
+    });
+  });
+
+  describe('Background Refresh', () => {
+    it('should start background refresh when warming cache', async () => {
+      const namespaceUuid = 'background-refresh-test';
+      const tools = createMockTools(50);
+      
+      // Initially not running
+      stopBackgroundRefresh();
+      expect(isBackgroundRefreshRunning()).toBe(false);
+      
+      // Warm cache - should start background refresh
+      await warmNamespaceCache(namespaceUuid, async () => tools);
+      
+      // Background refresh should be running now
+      expect(isBackgroundRefreshRunning()).toBe(true);
+      
+      // Clean up
+      stopBackgroundRefresh();
+      expect(isBackgroundRefreshRunning()).toBe(false);
+    });
+
+    it('should store refresh function for later use', async () => {
+      const namespaceUuid = 'refresh-func-test';
+      const tools1 = createMockTools(50, 'v1');
+      const tools2 = createMockTools(60, 'v2');
+      let fetchVersion = 1;
+      
+      // Create a dynamic fetch function
+      const dynamicFetch = vi.fn().mockImplementation(async () => {
+        return fetchVersion === 1 ? tools1 : tools2;
+      });
+      
+      // First warm
+      await warmNamespaceCache(namespaceUuid, dynamicFetch);
+      expect(dynamicFetch).toHaveBeenCalledTimes(1);
+      expect(getNamespaceTools(namespaceUuid)).toHaveLength(50);
+      
+      // Simulate "upstream adds tools" - next fetch will return more tools
+      fetchVersion = 2;
+      
+      // Invalidate to force re-fetch on next request
+      invalidateNamespaceCache(namespaceUuid);
+      
+      // Re-warm should use the stored fetch function behavior
+      await warmNamespaceCache(namespaceUuid, dynamicFetch);
+      expect(getNamespaceTools(namespaceUuid)).toHaveLength(60);
+      expect(getNamespaceTools(namespaceUuid)![0].name).toContain('v2');
+    });
+
+    it('should stop background refresh when cache is cleared', async () => {
+      const namespaceUuid = 'clear-stops-refresh';
+      const tools = createMockTools(30);
+      
+      // Warm to start background refresh
+      await warmNamespaceCache(namespaceUuid, async () => tools);
+      expect(isBackgroundRefreshRunning()).toBe(true);
+      
+      // Clear all caches - should stop background refresh
+      clearAllNamespaceCache();
+      expect(isBackgroundRefreshRunning()).toBe(false);
     });
   });
 });

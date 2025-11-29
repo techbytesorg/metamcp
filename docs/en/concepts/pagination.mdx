@@ -97,9 +97,27 @@ The namespace cache may not reflect the latest tools from upstream MCP servers i
 
 Cache is automatically refreshed when:
 
-1. **TTL expires** (default: 1 hour) - Next request triggers re-fetch
-2. **Config change** - Adding/editing/removing MCP servers invalidates cache
-3. **Server restart** - Fresh cache is pre-warmed
+1. **Background refresh** (NEW) - Proactively refreshes at 80% of TTL (48 min for 1-hour TTL)
+2. **TTL expires** (default: 1 hour) - Fallback if background refresh fails
+3. **Config change** - Adding/editing/removing MCP servers invalidates cache
+4. **Server restart** - Fresh cache is pre-warmed
+
+### Background Refresh (Always-Warm Cache)
+
+MetaMCP runs a background job every 5 minutes to check cache entries:
+
+- **Proactive refresh**: Entries are refreshed when they reach 80% of their TTL
+- **No client wait**: Refresh happens in background, clients always get instant responses
+- **Failure tolerant**: If background refresh fails, stale data is served until next attempt
+
+Example timeline (1-hour TTL):
+```
+0:00  - Cache warmed (2852 tools)
+0:48  - Background refresh triggers (80% of TTL)
+0:48  - New tools fetched, cache updated
+1:36  - Next background refresh
+...   - Cache never expires, always warm
+```
 
 ### Manual Cache Refresh Options
 

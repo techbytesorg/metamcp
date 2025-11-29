@@ -120,6 +120,15 @@ streamableHttpRouter.post(
 
     if (!sessionId) {
       try {
+        // Warn about potential session leak if too many active sessions
+        const activeSessionCount = sessionManager.getSessionCount();
+        if (activeSessionCount >= 10) {
+          console.warn(
+            `[WARNING] High session count (${activeSessionCount}) for endpoint ${endpointName}. ` +
+            `Client may not be reusing sessions. Ensure mcp-session-id header is sent in subsequent requests.`
+          );
+        }
+
         console.log(
           `New public endpoint StreamableHttp connection request for ${endpointName} -> namespace ${namespaceUuid}`,
         );

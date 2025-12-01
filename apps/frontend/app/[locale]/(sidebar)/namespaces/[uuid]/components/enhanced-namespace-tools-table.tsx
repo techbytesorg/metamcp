@@ -149,6 +149,10 @@ export function EnhancedNamespaceToolsTable({
   const [tempOverrides, setTempOverrides] = useState<
     Map<string, OverrideDraft>
   >(new Map());
+  
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(0);
+  const ITEMS_PER_PAGE = 50;
 
   // Get translations
   const { t } = useTranslations();
@@ -589,6 +593,18 @@ export function EnhancedNamespaceToolsTable({
     return filtered;
   }, [enhancedTools, searchTerm, sortField, sortDirection]);
 
+  // Pagination calculation
+  const totalPages = Math.ceil(filteredAndSortedTools.length / ITEMS_PER_PAGE);
+  const paginatedTools = useMemo(() => {
+    const startIndex = currentPage * ITEMS_PER_PAGE;
+    return filteredAndSortedTools.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredAndSortedTools, currentPage, ITEMS_PER_PAGE]);
+
+  // Reset page when search term changes
+  React.useEffect(() => {
+    setCurrentPage(0);
+  }, [searchTerm]);
+
   // Render sort icon
   const renderSortIcon = (field: SortField) => {
     if (sortField !== field) return null;
@@ -891,7 +907,7 @@ export function EnhancedNamespaceToolsTable({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredAndSortedTools.map((tool) => {
+              {paginatedTools.map((tool) => {
                 const toolId = getToolId(tool);
                 const isExpanded = expandedRows.has(toolId);
                 const parameters = getToolParameters(tool);
@@ -1499,6 +1515,59 @@ export function EnhancedNamespaceToolsTable({
               })}
             </TableBody>
           </Table>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between px-2 py-3 border-t">
+              <div className="text-sm text-muted-foreground">
+                {t("namespaces:enhancedToolsTable.showingRange", {
+                  start: currentPage * ITEMS_PER_PAGE + 1,
+                  end: Math.min((currentPage + 1) * ITEMS_PER_PAGE, filteredAndSortedTools.length),
+                  total: filteredAndSortedTools.length,
+                })}
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(0)}
+                  disabled={currentPage === 0}
+                >
+                  {t("namespaces:enhancedToolsTable.first")}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((p) => Math.max(0, p - 1))}
+                  disabled={currentPage === 0}
+                >
+                  {t("namespaces:enhancedToolsTable.previous")}
+                </Button>
+                <span className="text-sm text-muted-foreground px-2">
+                  {t("namespaces:enhancedToolsTable.pageOf", {
+                    current: currentPage + 1,
+                    total: totalPages,
+                  })}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((p) => Math.min(totalPages - 1, p + 1))}
+                  disabled={currentPage >= totalPages - 1}
+                >
+                  {t("namespaces:enhancedToolsTable.next")}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(totalPages - 1)}
+                  disabled={currentPage >= totalPages - 1}
+                >
+                  {t("namespaces:enhancedToolsTable.last")}
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -151,7 +151,13 @@
     "autoSaving": "Auto-saving...",
     "active": "ACTIVE",
     "inactive": "INACTIVE",
-    "editOverrides": "Edit Overrides"
+    "editOverrides": "Edit Overrides",
+    "showingRange": "Showing {{start}} - {{end}} of {{total}} tools",
+    "pageOf": "Page {{current}} of {{total}}",
+    "first": "First",
+    "previous": "Previous",
+    "next": "Next",
+    "last": "Last"
   },
   "serversTable": {
     "noServers": "No MCP Servers",

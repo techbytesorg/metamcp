@@ -405,6 +405,42 @@ export class McpServerPool {
   }
 
   /**
+   * Invalidate a stale active session for a specific server.
+   * This should be called when we detect a session_not_found error from upstream.
+   * Cleans up the stale connection so next getSession() will create a fresh one.
+   */
+  async invalidateActiveSession(
+    sessionId: string,
+    serverUuid: string,
+  ): Promise<void> {
+    console.log(
+      `Invalidating stale active session for server ${serverUuid} in session ${sessionId}`,
+    );
+
+    const sessionServers = this.activeSessions[sessionId];
+    if (!sessionServers?.[serverUuid]) {
+      return;
+    }
+
+    // Cleanup the stale connection
+    try {
+      await sessionServers[serverUuid].cleanup();
+      console.log(
+        `Cleaned up stale active session for server ${serverUuid} in session ${sessionId}`,
+      );
+    } catch (error) {
+      console.error(
+        `Error cleaning up stale active session for server ${serverUuid}:`,
+        error,
+      );
+    }
+
+    // Remove from active sessions so next getSession() creates a fresh connection
+    delete sessionServers[serverUuid];
+    this.sessionToServers[sessionId]?.delete(serverUuid);
+  }
+
+  /**
    * Invalidate and refresh idle sessions for multiple servers
    */
   async invalidateIdleSessions(

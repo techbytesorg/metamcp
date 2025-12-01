@@ -13,6 +13,29 @@ import { mapOverrideNameToOriginal } from "./metamcp-middleware/tool-overrides.f
 import { sanitizeName } from "./utils";
 
 // ============================================================================
+// Session Error Detection
+// ============================================================================
+
+/**
+ * Check if an error is a stale/expired session error from upstream MCP server.
+ * These errors indicate we need to reconnect with a fresh session.
+ * Exported for testing.
+ */
+export function isSessionExpiredError(error: unknown): boolean {
+  if (error instanceof Error) {
+    const message = error.message.toLowerCase();
+    // Common session expiry error patterns
+    return (
+      message.includes("session_not_found") ||
+      message.includes("invalid session") ||
+      message.includes("session expired") ||
+      message.includes("session timeout")
+    );
+  }
+  return false;
+}
+
+// ============================================================================
 // Tool Fetcher Utility
 // ============================================================================
 // Extracted tool fetching logic for reuse in:
@@ -162,31 +185,88 @@ export async function fetchAllToolsFromUpstream(
       // Use name assigned by user, fallback to name from server
       const serverName = params.name || session.client.getServerVersion()?.name || "";
 
-      try {
-        // Paginated tool discovery from upstream - load all pages automatically
-        const allServerTools: Tool[] = [];
-        let upstreamCursor: string | undefined = undefined;
-        let hasMore = true;
+      // Helper function to fetch tools with retry on session expiry
+      const fetchToolsWithRetry = async (
+        currentSession: ConnectedClient,
+        isRetry: boolean = false,
+      ): Promise<{ tools: Tool[]; session: ConnectedClient }> => {
+        try {
+          // Paginated tool discovery from upstream - load all pages automatically
+          const allServerTools: Tool[] = [];
+          let upstreamCursor: string | undefined = undefined;
+          let hasMore = true;
 
-        while (hasMore) {
-          const result: z.infer<typeof ListToolsResultSchema> =
-            await session.client.request(
-              {
-                method: "tools/list",
-                params: {
-                  cursor: upstreamCursor,
+          while (hasMore) {
+            const result: z.infer<typeof ListToolsResultSchema> =
+              await currentSession.client.request(
+                {
+                  method: "tools/list",
+                  params: {
+                    cursor: upstreamCursor,
+                  },
                 },
-              },
-              ListToolsResultSchema,
-            );
+                ListToolsResultSchema,
+              );
 
-          if (result.tools && result.tools.length > 0) {
-            allServerTools.push(...result.tools);
+            if (result.tools && result.tools.length > 0) {
+              allServerTools.push(...result.tools);
+            }
+
+            upstreamCursor = result.nextCursor;
+            hasMore = !!result.nextCursor;
           }
 
-          upstreamCursor = result.nextCursor;
-          hasMore = !!result.nextCursor;
+          return { tools: allServerTools, session: currentSession };
+        } catch (error) {
+          // Check if this is a stale session error and we haven't retried yet
+          if (isSessionExpiredError(error) && !isRetry) {
+            logger.warn(
+              "ToolFetcher",
+              `Session expired for ${serverName}, reconnecting...`,
+            );
+
+            // Invalidate the stale active session first (removes from cache)
+            await mcpServerPool.invalidateActiveSession(sessionId, mcpServerUuid);
+
+            // Also invalidate the idle session to ensure fresh connection
+            await mcpServerPool.invalidateIdleSession(
+              mcpServerUuid,
+              params,
+              namespaceUuid,
+            );
+
+            // Get a fresh session
+            const newSession = await mcpServerPool.getSession(
+              sessionId,
+              mcpServerUuid,
+              params,
+              namespaceUuid,
+            );
+
+            if (!newSession) {
+              throw new Error(
+                `Failed to reconnect to ${serverName} after session expiry`,
+              );
+            }
+
+            logger.info(
+              "ToolFetcher",
+              `Reconnected to ${serverName}, retrying tool fetch...`,
+            );
+
+            // Retry with the fresh session
+            return fetchToolsWithRetry(newSession, true);
+          }
+
+          // Not a session error or already retried, rethrow
+          throw error;
         }
+      };
+
+      try {
+        // Fetch tools with automatic retry on session expiry
+        const { tools: allServerTools, session: activeSession } =
+          await fetchToolsWithRetry(session);
 
         // Save original tools to database (before middleware processing)
         if (allServerTools.length > 0) {
@@ -209,9 +289,10 @@ export async function fetchAllToolsFromUpstream(
         }
 
         // Build tool list with namespaced names and mappings
+        // Use activeSession (might be a fresh one if we reconnected)
         const toolsWithSource = allServerTools.map((tool) => {
           const toolName = `${sanitizeName(serverName)}__${tool.name}`;
-          toolToClient[toolName] = session;
+          toolToClient[toolName] = activeSession;
           toolToServerUuid[toolName] = mcpServerUuid;
 
           return {

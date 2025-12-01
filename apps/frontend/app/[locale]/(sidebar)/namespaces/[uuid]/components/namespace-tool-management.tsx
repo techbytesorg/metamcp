@@ -109,38 +109,69 @@ export function NamespaceToolManagement({
       },
     });
 
-  // Fetch tools from MetaMCP
+  // Fetch tools from MetaMCP with pagination
+  // forceRefresh: when true, invalidates backend cache to fetch fresh data from upstream
   const fetchMetaMCPTools = useCallback(
-    async (autoSave: boolean = false) => {
+    async (autoSave: boolean = false, forceRefresh: boolean = false) => {
       if (!makeRequest) {
         console.warn("MetaMCP connection not available");
         return;
       }
 
       try {
-        const listToolsRequest: ClientRequest = {
-          method: "tools/list",
-          params: {},
-        };
+        // Paginated tool fetching - load all pages automatically
+        const allTools: Array<{
+          name: string;
+          description?: string;
+          inputSchema: Record<string, unknown>;
+        }> = [];
+        let cursor: string | undefined = undefined;
+        let hasMore = true;
+        let pageCount = 0;
 
-        const toolsListResponse = await makeRequest(
-          listToolsRequest,
-          ListToolsResultSchema,
-          { suppressToast: true },
-        );
+        while (hasMore) {
+          pageCount++;
+          
+          // Build params: cursor for pagination, forceRefresh only on first page
+          const params: Record<string, unknown> = {};
+          if (cursor) {
+            params.cursor = cursor;
+          }
+          if (forceRefresh && pageCount === 1) {
+            params.forceRefresh = true;
+          }
+          
+          const response = (await makeRequest(
+            {
+              method: "tools/list" as const,
+              params,
+            },
+            ListToolsResultSchema,
+            { suppressToast: true },
+          )) as z.infer<typeof ListToolsResultSchema> & { nextCursor?: string };
 
-        if (toolsListResponse && toolsListResponse.tools) {
-          const mcpToolsData = toolsListResponse.tools.map((tool) => ({
-            name: tool.name,
-            description: tool.description || "",
-            inputSchema: tool.inputSchema,
-          }));
+          if (response?.tools && response.tools.length > 0) {
+            const toolsData = response.tools.map((tool) => ({
+              name: tool.name,
+              description: tool.description || "",
+              inputSchema: tool.inputSchema,
+            }));
+            allTools.push(...toolsData);
+          }
 
-          setMcpTools(mcpToolsData);
+          // Handle both nextCursor (from our backend) and next_cursor (MCP SDK standard)
+          cursor = (response as any).nextCursor || (response as any).next_cursor;
+          hasMore = !!cursor;
+        }
+        
+        console.log(`[NamespaceToolManagement] Fetched ${allTools.length} total tools across ${pageCount} page(s)`);
+
+        if (allTools.length > 0) {
+          setMcpTools(allTools);
 
           // Automatically save tools to namespace mappings when autoSave is true (first load only)
-          if (autoSave && toolsListResponse.tools.length > 0) {
-            const toolsForSubmission = toolsListResponse.tools.map((tool) => ({
+          if (autoSave) {
+            const toolsForSubmission = allTools.map((tool) => ({
               name: tool.name, // Keep the full "ServerName__toolName" format
               description: tool.description || "",
               inputSchema: tool.inputSchema,
@@ -154,10 +185,6 @@ export function NamespaceToolManagement({
               namespaceUuid,
               tools: toolsForSubmission,
             });
-          } else if (autoSave) {
-            // Auto-save requested but no tools found - this is fine
-          } else {
-            // Manual refresh - not auto-saving
           }
         } else {
           setMcpTools([]);
@@ -194,10 +221,10 @@ export function NamespaceToolManagement({
 
     setLoading(true);
     try {
-      // Just fetch and display the tools (no mutation call to avoid duplicate toast)
-      await fetchMetaMCPTools(false);
+      // Fetch all tools with forceRefresh=true to bypass cache and get fresh data from upstream
+      await fetchMetaMCPTools(false, true);
 
-      // Show simple success message for manual refresh
+      // Show success message
       toast.success(t("namespaces:toolManagement.toolsRefreshed"), {
         description: t("namespaces:toolManagement.toolsRefreshedDescription"),
       });

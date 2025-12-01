@@ -1,0 +1,2650 @@
+timestamp,message
+1758370567361,Cleaned up expired OAuth codes and tokens
+1758370867364,Cleaned up expired OAuth codes and tokens
+1758371167362,Cleaned up expired OAuth codes and tokens
+1758371467364,Cleaned up expired OAuth codes and tokens
+1758371767400,Cleaned up expired OAuth codes and tokens
+1758372067365,Cleaned up expired OAuth codes and tokens
+1758372367362,Cleaned up expired OAuth codes and tokens
+1758372667362,Cleaned up expired OAuth codes and tokens
+1758372967363,Cleaned up expired OAuth codes and tokens
+1758373267366,Cleaned up expired OAuth codes and tokens
+1758373419576,Ensuring idle session exists for new server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373419576,Creating new connection for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with namespace: none
+1758373419578,Connecting to server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with max attempts: 1
+1758373419586,Setting up crash handler for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373420443,[MetaMCP][AWS-Documentation] Downloading pygments (1.2MiB) 
+1758373420444,[MetaMCP][AWS-Documentation] Downloading pydantic-core (1.9MiB) 
+1758373420557,[MetaMCP][AWS-Documentation] Downloading pydantic-core 
+1758373420723,[MetaMCP][AWS-Documentation] Downloading pygments 
+1758373420785,[MetaMCP][AWS-Documentation] Installed 38 packages in 61ms 
+1758373421076,[MetaMCP][AWS-Documentation] Traceback (most recent call last):
+1758373421076,"  File ""/home/nextjs/.cache/uv/archive-v0/3IM2tfK-z2piKCD2DAor8/bin/awslabs.aws-documentation-mcp-server"", line 6, in <module> "
+1758373421076,[MetaMCP][AWS-Documentation] from awslabs.aws_documentation_mcp_server.server import main
+1758373421076,"  File ""/home/nextjs/.cache/uv/archive-v0/3IM2tfK-z2piKCD2DAor8/lib/python3.11/site-packages/awslabs/aws_documentation_mcp_server/server.py"", line 23, in <module>"
+1758373421076,"    logger.add(sys.stderr, level=os.getenv('FASTMCP_LOG_LEVEL', 'WARNING'))"
+1758373421076,"  File ""/home/nextjs/.cache/uv/archive-v0/3IM2tfK-z2piKCD2DAor8/lib/python3.11/site-packages/loguru/_logger.py"", line 937, in add "
+1758373421077,[MetaMCP][AWS-Documentation] levelno = self.level(level).no
+1758373421077,              ^^^^^^^^^^^^^^^^^
+1758373421077,"  File ""/home/nextjs/.cache/uv/archive-v0/3IM2tfK-z2piKCD2DAor8/lib/python3.11/site-packages/loguru/_logger.py"", line 1598, in level "
+1758373421077,"[MetaMCP][AWS-Documentation] raise ValueError(""Level '' does not exist"" % name) from None"
+1758373421078,"[MetaMCP][AWS-Documentation] ValueError: Level '""error""' does not exist "
+1758373421104,"Process crashed with code: 1, signal: null"
+1758373421104,Calling onprocesscrash handler: handler exists
+1758373421105,"Process crashed for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): code=1, signal=null"
+1758373421105,Calling onProcessCrash callback for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373421105,Crash handler callback called for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with namespace: none
+1758373421105,Handling server crash for 5dafe67f-55f6-42e6-8195-cef92250bcd7 (no namespace context)
+1758373421105,Recording crash for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373421105,recordServerCrash called for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373421109,[MetaMCP][client] Error connecting to MetaMCP client (attempt 1/1) McpError: MCP error -32000: Connection closed
+1758373421109,    at Client._onclose (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:106:23)
+1758373421109,    at _transport.onclose (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:73:18)
+1758373421109,    at ChildProcess.<anonymous> (file:///app/apps/backend/dist/index.js:1888:27)
+1758373421109,    at ChildProcess.emit (node:events:524:28)
+1758373421109,    at maybeClose (node:internal/child_process:1104:16)
+1758373421109,    at ChildProcess._handle.onexit (node:internal/child_process:304:5) {
+1758373421109,"  code: -32000,"
+1758373421109,  data: undefined
+1758373421109,}
+1758373421109,Ensured idle session for newly created server: AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373421110,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 has crashed 1 times. Marking as ERROR.
+1758373421110,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 crashed. Attempt 1/1
+1758373421113,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 marked as ERROR at server level
+1758373421113,Server marked as ERROR due to repeated crashes: {
+1758373421113,"  serverUuid: '5dafe67f-55f6-42e6-8195-cef92250bcd7',"
+1758373421113,"  exitCode: 1,"
+1758373421113,"  signal: null,"
+1758373421113,  timestamp: 2025-09-20T13:03:41.113Z
+1758373421113,}
+1758373488530,Reset error state for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373488530,Reset error status for updated stdio server: AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373488532,Invalidating idle session for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373488532,Creating new connection for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with namespace: none
+1758373488535,Connecting to server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with max attempts: 1
+1758373488538,Setting up crash handler for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373488693,[MetaMCP][AWS-Documentation] Traceback (most recent call last):
+1758373488693,"  File ""/home/nextjs/.cache/uv/archive-v0/3IM2tfK-z2piKCD2DAor8/bin/awslabs.aws-documentation-mcp-server"", line 6, in <module> "
+1758373488693,[MetaMCP][AWS-Documentation] from awslabs.aws_documentation_mcp_server.server import main
+1758373488693,"  File ""/home/nextjs/.cache/uv/archive-v0/3IM2tfK-z2piKCD2DAor8/lib/python3.11/site-packages/awslabs/aws_documentation_mcp_server/server.py"", line 23, in <module>"
+1758373488693,"    logger.add(sys.stderr, level=os.getenv('FASTMCP_LOG_LEVEL', 'WARNING'))"
+1758373488693,"  File ""/home/nextjs/.cache/uv/archive-v0/3IM2tfK-z2piKCD2DAor8/lib/python3.11/site-packages/loguru/_logger.py"", line 937, in add"
+1758373488693,    levelno = self.level(level).no
+1758373488693,              ^^^^^^^^^^^^^^^^^
+1758373488693,"  File ""/home/nextjs/.cache/uv/archive-v0/3IM2tfK-z2piKCD2DAor8/lib/python3.11/site-packages/loguru/_logger.py"", line 1598, in level "
+1758373488693,"[MetaMCP][AWS-Documentation] raise ValueError(""Level '' does not exist"" % name) from None"
+1758373488693,"[MetaMCP][AWS-Documentation] ValueError: Level '""ERROR""' does not exist "
+1758373488716,"Process crashed with code: 1, signal: null"
+1758373488716,Calling onprocesscrash handler: handler exists
+1758373488716,"Process crashed for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): code=1, signal=null"
+1758373488717,Handling server crash for 5dafe67f-55f6-42e6-8195-cef92250bcd7 (no namespace context)
+1758373488717,Calling onProcessCrash callback for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373488717,Crash handler callback called for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with namespace: none
+1758373488717,Recording crash for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373488717,recordServerCrash called for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373488717,[MetaMCP][client] Error connecting to MetaMCP client (attempt 1/1) McpError: MCP error -32000: Connection closed
+1758373488717,    at Client._onclose (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:106:23)
+1758373488717,    at _transport.onclose (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:73:18)
+1758373488717,    at ChildProcess.<anonymous> (file:///app/apps/backend/dist/index.js:1888:27)
+1758373488717,    at ChildProcess.emit (node:events:524:28)
+1758373488717,    at maybeClose (node:internal/child_process:1104:16)
+1758373488717,    at ChildProcess._handle.onexit (node:internal/child_process:304:5) {
+1758373488717,"  code: -32000,"
+1758373488717,  data: undefined
+1758373488717,}
+1758373488718,Invalidated and refreshed idle session for updated server: AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373488719,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 crashed. Attempt 1/1
+1758373488719,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 has crashed 1 times. Marking as ERROR.
+1758373488722,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 marked as ERROR at server level
+1758373488722,Server marked as ERROR due to repeated crashes: {
+1758373488722,"  serverUuid: '5dafe67f-55f6-42e6-8195-cef92250bcd7',"
+1758373488722,"  exitCode: 1,"
+1758373488722,"  signal: null,"
+1758373488722,  timestamp: 2025-09-20T13:04:48.722Z
+1758373488722,}
+1758373496471,New STDIO connection request
+1758373496472,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server"",""env"":""{\""FASTMCP_LOG_LEVEL\"":\""\\\""ERROR\\\""\"",\""AWS_DOCUMENTATION_PARTITION\"":\""\\\""aws\\\""\""}"",""transportType"":""STDIO""}"
+1758373496474,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373496475,Found 7 servers in database
+1758373496475,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server
+1758373496475,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373496475,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373496476,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server"
+1758373496478,Created server transport
+1758373496479,Created client transport
+1758373496671,"Process crashed with code: 1, signal: null"
+1758373496671,Calling onprocesscrash handler: handler exists
+1758373496672,"STDIO process crashed with code: 1, signal: null"
+1758373496672,STDIO crash handler called for command: uvx awslabs.aws-documentation-mcp-server
+1758373496672,Looking for server with command: uvx awslabs.aws-documentation-mcp-server
+1758373496672,Server transport closed
+1758373496672,Closing client transport due to server close
+1758373496672,Client transport closed
+1758373496673,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373496673,Cleaning up proxy session cb785a2b-cdca-42ae-b465-bf69998d04c5
+1758373496673,Client transport closed
+1758373496673,"Cleanup already called, skipping"
+1758373496673,Connection closed for session cb785a2b-cdca-42ae-b465-bf69998d04c5
+1758373496673,Cleaning up proxy session cb785a2b-cdca-42ae-b465-bf69998d04c5
+1758373496673,Client transport closed
+1758373496673,"Cleanup already called, skipping"
+1758373496673,Connection closed for session cb785a2b-cdca-42ae-b465-bf69998d04c5
+1758373496673,Cleaning up proxy session cb785a2b-cdca-42ae-b465-bf69998d04c5
+1758373496673,Client transport closed
+1758373496673,"Cleanup already called, skipping"
+1758373496674,Client transport closed
+1758373496674,"Cleanup already called, skipping"
+1758373496674,Session cb785a2b-cdca-42ae-b465-bf69998d04c5 cleanup completed
+1758373496674,"Cleanup already called, skipping"
+1758373496674,Session cb785a2b-cdca-42ae-b465-bf69998d04c5 cleanup completed
+1758373496674,Session cb785a2b-cdca-42ae-b465-bf69998d04c5 cleanup completed
+1758373496674,MCP proxy cleanup completed successfully
+1758373496676,Found 7 servers in database
+1758373496676,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server
+1758373496676,Found exact match for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373496676,Handling server crash for 5dafe67f-55f6-42e6-8195-cef92250bcd7 (no namespace context)
+1758373496676,Reporting crash to server pool for server UUID: 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373496676,Recording crash for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373496676,recordServerCrash called for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373496677,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 has crashed 2 times. Marking as ERROR.
+1758373496677,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 crashed. Attempt 2/1
+1758373496679,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 marked as ERROR at server level
+1758373496679,Server marked as ERROR due to repeated crashes: {
+1758373496679,"  serverUuid: '5dafe67f-55f6-42e6-8195-cef92250bcd7',"
+1758373496679,"  exitCode: 1,"
+1758373496679,"  signal: null,"
+1758373496679,  timestamp: 2025-09-20T13:04:56.679Z
+1758373496679,}
+1758373517640,New STDIO connection request
+1758373517640,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server"",""env"":""{\""FASTMCP_LOG_LEVEL\"":\""\\\""ERROR\\\""\"",\""AWS_DOCUMENTATION_PARTITION\"":\""\\\""aws\\\""\""}"",""transportType"":""STDIO""}"
+1758373517640,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373517642,Found 7 servers in database
+1758373517642,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server
+1758373517642,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373517642,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373517642,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server"
+1758373517645,Created server transport
+1758373517645,Created client transport
+1758373517819,"Process crashed with code: 1, signal: null"
+1758373517820,Calling onprocesscrash handler: handler exists
+1758373517820,"STDIO process crashed with code: 1, signal: null"
+1758373517820,STDIO crash handler called for command: uvx awslabs.aws-documentation-mcp-server
+1758373517820,Looking for server with command: uvx awslabs.aws-documentation-mcp-server
+1758373517820,Server transport closed
+1758373517820,Closing client transport due to server close
+1758373517821,Client transport closed
+1758373517821,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373517821,Cleaning up proxy session 79632044-da03-4fad-bfb2-c1833c3206a1
+1758373517821,Client transport closed
+1758373517821,"Cleanup already called, skipping"
+1758373517821,Connection closed for session 79632044-da03-4fad-bfb2-c1833c3206a1
+1758373517821,Cleaning up proxy session 79632044-da03-4fad-bfb2-c1833c3206a1
+1758373517821,Client transport closed
+1758373517821,"Cleanup already called, skipping"
+1758373517821,Connection closed for session 79632044-da03-4fad-bfb2-c1833c3206a1
+1758373517821,Cleaning up proxy session 79632044-da03-4fad-bfb2-c1833c3206a1
+1758373517821,Client transport closed
+1758373517821,"Cleanup already called, skipping"
+1758373517821,Client transport closed
+1758373517821,"Cleanup already called, skipping"
+1758373517821,Session 79632044-da03-4fad-bfb2-c1833c3206a1 cleanup completed
+1758373517821,"Cleanup already called, skipping"
+1758373517821,Session 79632044-da03-4fad-bfb2-c1833c3206a1 cleanup completed
+1758373517821,Session 79632044-da03-4fad-bfb2-c1833c3206a1 cleanup completed
+1758373517821,MCP proxy cleanup completed successfully
+1758373517822,Found 7 servers in database
+1758373517822,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server
+1758373517823,Handling server crash for 5dafe67f-55f6-42e6-8195-cef92250bcd7 (no namespace context)
+1758373517823,Found exact match for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373517823,Reporting crash to server pool for server UUID: 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373517823,Recording crash for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373517823,recordServerCrash called for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373517824,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 crashed. Attempt 3/1
+1758373517824,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 has crashed 3 times. Marking as ERROR.
+1758373517826,Server 5dafe67f-55f6-42e6-8195-cef92250bcd7 marked as ERROR at server level
+1758373517826,Server marked as ERROR due to repeated crashes: {
+1758373517826,"  serverUuid: '5dafe67f-55f6-42e6-8195-cef92250bcd7',"
+1758373517826,"  exitCode: 1,"
+1758373517826,"  signal: null,"
+1758373517826,  timestamp: 2025-09-20T13:05:17.826Z
+1758373517826,}
+1758373567364,Cleaned up expired OAuth codes and tokens
+1758373620299,Reset error state for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373620299,Reset error status for updated stdio server: AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373620300,Invalidating idle session for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373620300,Creating new connection for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with namespace: none
+1758373620303,Connecting to server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with max attempts: 1
+1758373620306,Setting up crash handler for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373623267,Created idle session for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373623267,Invalidated and refreshed idle session for updated server: AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373627988,New STDIO connection request
+1758373627988,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server"",""env"":""{\""FASTMCP_LOG_LEVEL\"":\""ERROR\"",\""AWS_DOCUMENTATION_PARTITION\"":\""aws\""}"",""transportType"":""STDIO""}"
+1758373627989,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373627990,Found 7 servers in database
+1758373627990,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server
+1758373627990,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373627990,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373627990,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server"
+1758373627993,Created server transport
+1758373627993,Created client transport
+1758373628259,Connection closed for session 027bc1d2-c3ea-46c6-9f3b-bb81642471c8
+1758373628259,Cleaning up proxy session 027bc1d2-c3ea-46c6-9f3b-bb81642471c8
+1758373628259,Client transport closed
+1758373628259,Closing server transport due to client close
+1758373628260,Server transport closed
+1758373628260,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373628260,Cleaning up proxy session 027bc1d2-c3ea-46c6-9f3b-bb81642471c8
+1758373628260,Client transport closed
+1758373628260,"Cleanup already called, skipping"
+1758373628260,Client transport closed
+1758373628260,"Cleanup already called, skipping"
+1758373628260,Session 027bc1d2-c3ea-46c6-9f3b-bb81642471c8 cleanup completed
+1758373628260,"Cleanup already called, skipping"
+1758373628260,Session 027bc1d2-c3ea-46c6-9f3b-bb81642471c8 cleanup completed
+1758373628261,MCP proxy cleanup completed successfully
+1758373628265,Server transport closed
+1758373628265,"Cleanup already called, skipping"
+1758373649490,New STDIO connection request
+1758373649490,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server"",""env"":""{\""FASTMCP_LOG_LEVEL\"":\""ERROR\"",\""AWS_DOCUMENTATION_PARTITION\"":\""aws\""}"",""transportType"":""STDIO""}"
+1758373649491,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373649492,Found 7 servers in database
+1758373649492,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server
+1758373649492,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373649492,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373649492,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server"
+1758373649495,Created server transport
+1758373649495,Created client transport
+1758373649658,Connection closed for session 58e13b06-0fd9-4457-8c5d-d705b1ec9607
+1758373649658,Cleaning up proxy session 58e13b06-0fd9-4457-8c5d-d705b1ec9607
+1758373649658,Client transport closed
+1758373649658,Closing server transport due to client close
+1758373649658,Server transport closed
+1758373649659,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373649659,Cleaning up proxy session 58e13b06-0fd9-4457-8c5d-d705b1ec9607
+1758373649659,Client transport closed
+1758373649659,"Cleanup already called, skipping"
+1758373649659,Client transport closed
+1758373649659,"Cleanup already called, skipping"
+1758373649659,Session 58e13b06-0fd9-4457-8c5d-d705b1ec9607 cleanup completed
+1758373649659,"Cleanup already called, skipping"
+1758373649659,Session 58e13b06-0fd9-4457-8c5d-d705b1ec9607 cleanup completed
+1758373649659,MCP proxy cleanup completed successfully
+1758373649666,Server transport closed
+1758373649667,"Cleanup already called, skipping"
+1758373663762,New STDIO connection request
+1758373663762,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server"",""env"":""{\""FASTMCP_LOG_LEVEL\"":\""ERROR\"",\""AWS_DOCUMENTATION_PARTITION\"":\""aws\""}"",""transportType"":""STDIO""}"
+1758373663763,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373663764,Found 7 servers in database
+1758373663764,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server
+1758373663764,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373663764,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server
+1758373663765,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server"
+1758373663768,Created server transport
+1758373663768,Created client transport
+1758373663958,Connection closed for session 3980003e-3a38-46b6-88cc-40f5d6e11f69
+1758373663958,Cleaning up proxy session 3980003e-3a38-46b6-88cc-40f5d6e11f69
+1758373663958,Client transport closed
+1758373663958,Closing server transport due to client close
+1758373663959,Server transport closed
+1758373663959,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373663959,Cleaning up proxy session 3980003e-3a38-46b6-88cc-40f5d6e11f69
+1758373663959,Client transport closed
+1758373663959,"Cleanup already called, skipping"
+1758373663959,Client transport closed
+1758373663959,"Cleanup already called, skipping"
+1758373663959,Session 3980003e-3a38-46b6-88cc-40f5d6e11f69 cleanup completed
+1758373663959,"Cleanup already called, skipping"
+1758373663959,Session 3980003e-3a38-46b6-88cc-40f5d6e11f69 cleanup completed
+1758373663959,MCP proxy cleanup completed successfully
+1758373663965,Server transport closed
+1758373663965,"Cleanup already called, skipping"
+1758373767440,New STDIO connection request
+1758373767440,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server@latest"",""env"":""{\""FASTMCP_LOG_LEVEL\"":\""ERROR\"",\""AWS_DOCUMENTATION_PARTITION\"":\""aws\""}"",""transportType"":""STDIO""}"
+1758373767440,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373767442,Found 7 servers in database
+1758373767442,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server@latest
+1758373767442,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373767443,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373767443,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server@latest"
+1758373767448,Created server transport
+1758373767448,Created client transport
+1758373767606,Connection closed for session 45183858-1372-4e6a-972f-9089738d6008
+1758373767606,Cleaning up proxy session 45183858-1372-4e6a-972f-9089738d6008
+1758373767606,Client transport closed
+1758373767606,Closing server transport due to client close
+1758373767606,Server transport closed
+1758373767606,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373767607,Cleaning up proxy session 45183858-1372-4e6a-972f-9089738d6008
+1758373767607,Client transport closed
+1758373767607,"Cleanup already called, skipping"
+1758373767607,Client transport closed
+1758373767607,"Cleanup already called, skipping"
+1758373767607,Session 45183858-1372-4e6a-972f-9089738d6008 cleanup completed
+1758373767607,"Cleanup already called, skipping"
+1758373767607,Session 45183858-1372-4e6a-972f-9089738d6008 cleanup completed
+1758373767607,MCP proxy cleanup completed successfully
+1758373767608,Server transport closed
+1758373767608,"Cleanup already called, skipping"
+1758373786478,Reset error state for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373786478,Reset error status for updated stdio server: AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373786479,Invalidating idle session for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373786481,Cleaned up existing idle session for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373786481,Creating new connection for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with namespace: none
+1758373786505,Connecting to server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7) with max attempts: 1
+1758373786507,Setting up crash handler for server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373787392,Created idle session for server 5dafe67f-55f6-42e6-8195-cef92250bcd7
+1758373787392,Invalidated and refreshed idle session for updated server: AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7)
+1758373791387,New STDIO connection request
+1758373791388,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server@latest"",""env"":""{\""\\\""FASTMCP_LOG_LEVEL\\\""\"":\""\\\""ERROR\\\""\"",\""\\\""AWS_DOCUMENTATION_PARTITION\\\""\"":\""\\\""aws\\\""\""}"",""transportType"":""STDIO""}"
+1758373791388,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373791391,Found 7 servers in database
+1758373791391,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server@latest
+1758373791391,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373791391,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373791391,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server@latest"
+1758373791399,Created server transport
+1758373791399,Created client transport
+1758373791557,Connection closed for session ee955617-4382-42ba-b0b0-35a8623d6db2
+1758373791557,Cleaning up proxy session ee955617-4382-42ba-b0b0-35a8623d6db2
+1758373791557,Client transport closed
+1758373791557,Closing server transport due to client close
+1758373791557,Server transport closed
+1758373791558,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373791558,Cleaning up proxy session ee955617-4382-42ba-b0b0-35a8623d6db2
+1758373791558,Client transport closed
+1758373791558,"Cleanup already called, skipping"
+1758373791558,Client transport closed
+1758373791558,"Cleanup already called, skipping"
+1758373791558,Session ee955617-4382-42ba-b0b0-35a8623d6db2 cleanup completed
+1758373791558,"Cleanup already called, skipping"
+1758373791558,Session ee955617-4382-42ba-b0b0-35a8623d6db2 cleanup completed
+1758373791558,MCP proxy cleanup completed successfully
+1758373791561,Server transport closed
+1758373791561,"Cleanup already called, skipping"
+1758373852261,New STDIO connection request
+1758373852262,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server@latest"",""env"":""{\""\\\""FASTMCP_LOG_LEVEL\\\""\"":\""\\\""ERROR\\\""\"",\""\\\""AWS_DOCUMENTATION_PARTITION\\\""\"":\""\\\""aws\\\""\""}"",""transportType"":""STDIO""}"
+1758373852262,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373852264,Found 7 servers in database
+1758373852264,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server@latest
+1758373852264,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373852264,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373852264,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server@latest"
+1758373852266,Created server transport
+1758373852267,Created client transport
+1758373852459,Connection closed for session fc64d9dc-81b1-49cb-8b09-f717da3d7c28
+1758373852459,Cleaning up proxy session fc64d9dc-81b1-49cb-8b09-f717da3d7c28
+1758373852459,Client transport closed
+1758373852459,Closing server transport due to client close
+1758373852460,Server transport closed
+1758373852460,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373852460,Cleaning up proxy session fc64d9dc-81b1-49cb-8b09-f717da3d7c28
+1758373852460,Client transport closed
+1758373852460,"Cleanup already called, skipping"
+1758373852460,Client transport closed
+1758373852460,"Cleanup already called, skipping"
+1758373852460,Session fc64d9dc-81b1-49cb-8b09-f717da3d7c28 cleanup completed
+1758373852460,"Cleanup already called, skipping"
+1758373852460,Session fc64d9dc-81b1-49cb-8b09-f717da3d7c28 cleanup completed
+1758373852460,MCP proxy cleanup completed successfully
+1758373852463,Server transport closed
+1758373852463,"Cleanup already called, skipping"
+1758373867363,Cleaned up expired OAuth codes and tokens
+1758373937283,New STDIO connection request
+1758373937283,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server@latest"",""env"":""{\""FASTMCP_LOG_LEVEL\"":\""ERROR\"",\""AWS_DOCUMENTATION_PARTITION\"":\""aws\""}"",""transportType"":""STDIO""}"
+1758373937283,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373937285,Found 7 servers in database
+1758373937285,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server@latest
+1758373937285,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373937285,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373937285,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server@latest"
+1758373937287,Created server transport
+1758373937287,Created client transport
+1758373937443,Connection closed for session a0df94bf-27a5-4a25-af3f-ae072e487c32
+1758373937443,Cleaning up proxy session a0df94bf-27a5-4a25-af3f-ae072e487c32
+1758373937443,Client transport closed
+1758373937443,Closing server transport due to client close
+1758373937443,Server transport closed
+1758373937443,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373937443,Cleaning up proxy session a0df94bf-27a5-4a25-af3f-ae072e487c32
+1758373937443,Client transport closed
+1758373937443,"Cleanup already called, skipping"
+1758373937443,Client transport closed
+1758373937443,"Cleanup already called, skipping"
+1758373937443,Session a0df94bf-27a5-4a25-af3f-ae072e487c32 cleanup completed
+1758373937443,"Cleanup already called, skipping"
+1758373937443,Session a0df94bf-27a5-4a25-af3f-ae072e487c32 cleanup completed
+1758373937443,MCP proxy cleanup completed successfully
+1758373937446,Server transport closed
+1758373937446,"Cleanup already called, skipping"
+1758373939960,New STDIO connection request
+1758373939960,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server@latest"",""env"":""{\""FASTMCP_LOG_LEVEL\"":\""ERROR\"",\""AWS_DOCUMENTATION_PARTITION\"":\""aws\""}"",""transportType"":""STDIO""}"
+1758373939961,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373939963,Found 7 servers in database
+1758373939963,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server@latest
+1758373939963,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373939963,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373939963,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server@latest"
+1758373939965,Created server transport
+1758373939965,Created client transport
+1758373940123,Connection closed for session 33dc56e5-c72e-412c-afed-5da38adcad97
+1758373940123,Cleaning up proxy session 33dc56e5-c72e-412c-afed-5da38adcad97
+1758373940123,Client transport closed
+1758373940123,Closing server transport due to client close
+1758373940123,Server transport closed
+1758373940123,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373940123,Cleaning up proxy session 33dc56e5-c72e-412c-afed-5da38adcad97
+1758373940123,Client transport closed
+1758373940123,"Cleanup already called, skipping"
+1758373940124,Client transport closed
+1758373940124,"Cleanup already called, skipping"
+1758373940124,Session 33dc56e5-c72e-412c-afed-5da38adcad97 cleanup completed
+1758373940124,"Cleanup already called, skipping"
+1758373940124,Session 33dc56e5-c72e-412c-afed-5da38adcad97 cleanup completed
+1758373940124,MCP proxy cleanup completed successfully
+1758373940127,Server transport closed
+1758373940127,"Cleanup already called, skipping"
+1758373979571,New STDIO connection request
+1758373979571,"Query parameters: {""command"":""uvx"",""args"":""awslabs.aws-documentation-mcp-server@latest"",""env"":""{\""FASTMCP_LOG_LEVEL\"":\""ERROR\"",\""AWS_DOCUMENTATION_PARTITION\"":\""aws\""}"",""transportType"":""STDIO""}"
+1758373979572,Looking for server with command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373979573,Found 7 servers in database
+1758373979573,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server@latest
+1758373979573,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758373979573,No server found for command: /usr/local/bin/uvx awslabs.aws-documentation-mcp-server@latest
+1758373979573,"STDIO transport: command=/usr/local/bin/uvx, args=awslabs.aws-documentation-mcp-server@latest"
+1758373979576,Created server transport
+1758373979576,Created client transport
+1758373979736,Connection closed for session 26b2bb0a-2ad9-40ef-92d5-fc61d8cd331b
+1758373979736,Cleaning up proxy session 26b2bb0a-2ad9-40ef-92d5-fc61d8cd331b
+1758373979736,Client transport closed
+1758373979736,Closing server transport due to client close
+1758373979737,Server transport closed
+1758373979737,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758373979737,Cleaning up proxy session 26b2bb0a-2ad9-40ef-92d5-fc61d8cd331b
+1758373979737,Client transport closed
+1758373979737,"Cleanup already called, skipping"
+1758373979737,Client transport closed
+1758373979737,"Cleanup already called, skipping"
+1758373979737,Session 26b2bb0a-2ad9-40ef-92d5-fc61d8cd331b cleanup completed
+1758373979737,"Cleanup already called, skipping"
+1758373979737,Session 26b2bb0a-2ad9-40ef-92d5-fc61d8cd331b cleanup completed
+1758373979737,MCP proxy cleanup completed successfully
+1758373979744,Server transport closed
+1758373979744,"Cleanup already called, skipping"
+1758374043706,New STDIO connection request
+1758374043706,"Query parameters: {""command"":""npx"",""args"":""-y tavily-mcp"",""env"":""{\""TAVILY_API_KEY\"":\""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\""}"",""transportType"":""STDIO""}"
+1758374043706,Looking for server with command: /usr/bin/npx -y tavily-mcp
+1758374043714,Found 7 servers in database
+1758374043714,Checking server AWS-Documentation (5dafe67f-55f6-42e6-8195-cef92250bcd7): uvx awslabs.aws-documentation-mcp-server@latest
+1758374043715,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758374043715,No server found for command: /usr/bin/npx -y tavily-mcp
+1758374043715,"STDIO transport: command=/usr/bin/npx, args=-y,tavily-mcp"
+1758374043728,Created server transport
+1758374043728,Created client transport
+1758374043972,Connection closed for session 26a4d55a-50ee-467c-8da9-0d9b4cf1de86
+1758374043973,Cleaning up proxy session 26a4d55a-50ee-467c-8da9-0d9b4cf1de86
+1758374043973,Client transport closed
+1758374043973,Closing server transport due to client close
+1758374043974,Server transport closed
+1758374043974,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758374043974,Cleaning up proxy session 26a4d55a-50ee-467c-8da9-0d9b4cf1de86
+1758374043974,Client transport closed
+1758374043974,"Cleanup already called, skipping"
+1758374043975,Client transport closed
+1758374043975,"Cleanup already called, skipping"
+1758374043975,Session 26a4d55a-50ee-467c-8da9-0d9b4cf1de86 cleanup completed
+1758374043975,"Cleanup already called, skipping"
+1758374043975,Session 26a4d55a-50ee-467c-8da9-0d9b4cf1de86 cleanup completed
+1758374043975,MCP proxy cleanup completed successfully
+1758374043978,Server transport closed
+1758374043978,"Cleanup already called, skipping"
+1758374063146,POST /mcp request for endpoint: m2m-arc
+1758374063146,Authentication method: oauth
+1758374063146,Session ID: ed08ae5c-3513-49cc-8202-80d0b0a322b9
+1758374063146,Available session IDs: [
+1758374063146,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374063146,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374063146,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374063146,]
+1758374063146,Looking for sessionId: ed08ae5c-3513-49cc-8202-80d0b0a322b9
+1758374063146,Looking up existing session: ed08ae5c-3513-49cc-8202-80d0b0a322b9
+1758374063147,Available sessions: [
+1758374063147,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374063147,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374063147,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374063147,]
+1758374063147,Transport not found for sessionId ed08ae5c-3513-49cc-8202-80d0b0a322b9. Available sessions: [
+1758374063147,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374063147,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374063147,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374063147,]
+1758374167362,Cleaned up expired OAuth codes and tokens
+1758374321829,POST /mcp request for endpoint: m2m-arc
+1758374321829,Authentication method: oauth
+1758374321829,Session ID: 51a2debd-bd57-4003-bdaf-deeb1bb370cd
+1758374321829,Available session IDs: [
+1758374321829,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374321829,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374321829,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374321829,]
+1758374321829,Looking for sessionId: 51a2debd-bd57-4003-bdaf-deeb1bb370cd
+1758374321829,Looking up existing session: 51a2debd-bd57-4003-bdaf-deeb1bb370cd
+1758374321830,Available sessions: [
+1758374321830,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374321830,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374321830,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374321830,]
+1758374321830,Transport not found for sessionId 51a2debd-bd57-4003-bdaf-deeb1bb370cd. Available sessions: [
+1758374321830,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374321830,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374321830,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374321830,]
+1758374323168,POST /mcp request for endpoint: m2m-arc
+1758374323168,Authentication method: oauth
+1758374323168,Session ID: 6ee1ef5b-39e8-41f7-9095-ce0ebe9ed340
+1758374323168,Available session IDs: [
+1758374323168,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374323168,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374323168,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374323168,]
+1758374323168,Looking for sessionId: 6ee1ef5b-39e8-41f7-9095-ce0ebe9ed340
+1758374323168,Looking up existing session: 6ee1ef5b-39e8-41f7-9095-ce0ebe9ed340
+1758374323168,Available sessions: [
+1758374323168,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374323168,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374323168,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374323168,]
+1758374323170,Transport not found for sessionId 6ee1ef5b-39e8-41f7-9095-ce0ebe9ed340. Available sessions: [
+1758374323170,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374323170,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374323170,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374323170,]
+1758374324879,POST /mcp request for endpoint: m2m-arc
+1758374324879,Authentication method: oauth
+1758374324879,Session ID: ebdf2ac6-478e-4ee5-9113-348d9898f354
+1758374324879,Available session IDs: [
+1758374324879,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374324879,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374324879,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374324879,]
+1758374324879,Looking for sessionId: ebdf2ac6-478e-4ee5-9113-348d9898f354
+1758374324879,Looking up existing session: ebdf2ac6-478e-4ee5-9113-348d9898f354
+1758374324879,Available sessions: [
+1758374324879,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374324879,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374324879,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374324879,]
+1758374324879,Transport not found for sessionId ebdf2ac6-478e-4ee5-9113-348d9898f354. Available sessions: [
+1758374324879,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374324879,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374324879,  '45766637-6341-4c51-808d-ce39b641bff0'
+1758374324879,]
+1758374329957,POST /mcp request for endpoint: m2m-arc
+1758374329957,Authentication method: oauth
+1758374329957,Session ID: new session
+1758374329957,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758374329957,Generated new session ID: 63f5867b-e7da-4ae6-92fa-877f1af405ab for endpoint: m2m-arc
+1758374329957,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session 63f5867b-e7da-4ae6-92fa-877f1af405ab"
+1758374329958,Using MetaMCP server instance for public endpoint session 63f5867b-e7da-4ae6-92fa-877f1af405ab (endpoint: m2m-arc)
+1758374329958,Created public endpoint StreamableHttp transport
+1758374329958,Session 63f5867b-e7da-4ae6-92fa-877f1af405ab will be cleaned up when DELETE request is received
+1758374329958,Public Endpoint Client <-> Proxy sessionId: 63f5867b-e7da-4ae6-92fa-877f1af405ab for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758374329958,Stored transport for sessionId: 63f5867b-e7da-4ae6-92fa-877f1af405ab
+1758374329958,Current stored sessions: [
+1758374329958,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374329958,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374329958,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758374329958,  '63f5867b-e7da-4ae6-92fa-877f1af405ab'
+1758374329958,]
+1758374329958,Total active sessions: 4
+1758374329958,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758374329959,Session initialized for sessionId: 63f5867b-e7da-4ae6-92fa-877f1af405ab
+1758374393527,New STDIO connection request
+1758374393527,"Query parameters: {""command"":""npx"",""args"":""-y tavily-mcp"",""env"":""{\""TAVILY_API_KEY\"":\""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\""}"",""transportType"":""STDIO""}"
+1758374393528,Looking for server with command: /usr/bin/npx -y tavily-mcp
+1758374393529,Found 6 servers in database
+1758374393529,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758374393529,No server found for command: /usr/bin/npx -y tavily-mcp
+1758374393529,"STDIO transport: command=/usr/bin/npx, args=-y,tavily-mcp"
+1758374393536,Created server transport
+1758374393536,Created client transport
+1758374393759,Connection closed for session 34dd00fe-26cb-44ea-9667-b2c2a3947e78
+1758374393759,Cleaning up proxy session 34dd00fe-26cb-44ea-9667-b2c2a3947e78
+1758374393759,Client transport closed
+1758374393759,Closing server transport due to client close
+1758374393759,Server transport closed
+1758374393759,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758374393759,Cleaning up proxy session 34dd00fe-26cb-44ea-9667-b2c2a3947e78
+1758374393759,Client transport closed
+1758374393759,"Cleanup already called, skipping"
+1758374393759,Client transport closed
+1758374393759,"Cleanup already called, skipping"
+1758374393759,Session 34dd00fe-26cb-44ea-9667-b2c2a3947e78 cleanup completed
+1758374393759,"Cleanup already called, skipping"
+1758374393759,Session 34dd00fe-26cb-44ea-9667-b2c2a3947e78 cleanup completed
+1758374393759,MCP proxy cleanup completed successfully
+1758374393763,Server transport closed
+1758374393763,"Cleanup already called, skipping"
+1758374420048,New StreamableHttp connection request
+1758374420048,"Query parameters: {""url"":""https://api.arcade.dev/v1/mcps/arcade-anon/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758374420051,Created StreamableHttp server transport
+1758374420051,Created StreamableHttp client transport
+1758374420052,Client <-> Proxy  sessionId: 3b19d253-ee85-4ca4-8923-51a932c1dfe9
+1758374420439,Proxy  <-> Server sessionId: 53af2e7bbe65ce112431a0cf8ecb5b09
+1758374467370,Cleaned up expired OAuth codes and tokens
+1758374606958,POST /mcp request for endpoint: m2m-arc
+1758374606958,Authentication method: oauth
+1758374606959,Session ID: c83bef6a-0462-4bf1-8345-18d22028ea2b
+1758374606959,Available session IDs: [
+1758374606959,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374606959,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374606959,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758374606959,  '63f5867b-e7da-4ae6-92fa-877f1af405ab'
+1758374606959,]
+1758374606959,Looking for sessionId: c83bef6a-0462-4bf1-8345-18d22028ea2b
+1758374606959,Looking up existing session: c83bef6a-0462-4bf1-8345-18d22028ea2b
+1758374606959,Available sessions: [
+1758374606959,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374606959,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374606959,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758374606959,  '63f5867b-e7da-4ae6-92fa-877f1af405ab'
+1758374606959,]
+1758374606959,Transport not found for sessionId c83bef6a-0462-4bf1-8345-18d22028ea2b. Available sessions: [
+1758374606959,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374606959,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374606959,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758374606959,  '63f5867b-e7da-4ae6-92fa-877f1af405ab'
+1758374606959,]
+1758374654234,POST /mcp request for endpoint: m2m-arc
+1758374654234,Authentication method: oauth
+1758374654234,Session ID: 1c77eb74-fd27-4335-a384-8466808366fc
+1758374654234,Available session IDs: [
+1758374654234,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374654234,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374654234,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758374654234,  '63f5867b-e7da-4ae6-92fa-877f1af405ab'
+1758374654234,]
+1758374654234,Looking for sessionId: 1c77eb74-fd27-4335-a384-8466808366fc
+1758374654234,Looking up existing session: 1c77eb74-fd27-4335-a384-8466808366fc
+1758374654235,Transport not found for sessionId 1c77eb74-fd27-4335-a384-8466808366fc. Available sessions: [
+1758374654235,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374654235,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374654235,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758374654235,  '63f5867b-e7da-4ae6-92fa-877f1af405ab'
+1758374654235,]
+1758374654235,Available sessions: [
+1758374654235,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374654235,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374654235,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758374654235,  '63f5867b-e7da-4ae6-92fa-877f1af405ab'
+1758374654235,]
+1758374654259,Looking up existing session: 1c77eb74-fd27-4335-a384-8466808366fc
+1758374654259,Available sessions: [
+1758374654259,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374654259,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374654259,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758374654259,  '63f5867b-e7da-4ae6-92fa-877f1af405ab'
+1758374654259,]
+1758374654259,Session 1c77eb74-fd27-4335-a384-8466808366fc not found in transports
+1758374767368,Cleaned up expired OAuth codes and tokens
+1758374787268,POST /mcp request for endpoint: m2m-arc
+1758374787268,Authentication method: oauth
+1758374787268,Session ID: new session
+1758374787268,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758374787268,Generated new session ID: 7b644951-c56b-4ddc-8359-cc8a155ae798 for endpoint: m2m-arc
+1758374787268,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session 7b644951-c56b-4ddc-8359-cc8a155ae798"
+1758374787268,Using MetaMCP server instance for public endpoint session 7b644951-c56b-4ddc-8359-cc8a155ae798 (endpoint: m2m-arc)
+1758374787268,Created public endpoint StreamableHttp transport
+1758374787268,Session 7b644951-c56b-4ddc-8359-cc8a155ae798 will be cleaned up when DELETE request is received
+1758374787268,Public Endpoint Client <-> Proxy sessionId: 7b644951-c56b-4ddc-8359-cc8a155ae798 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758374787268,Stored transport for sessionId: 7b644951-c56b-4ddc-8359-cc8a155ae798
+1758374787268,Current stored sessions: [
+1758374787268,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758374787268,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758374787268,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758374787268,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758374787268,  '7b644951-c56b-4ddc-8359-cc8a155ae798'
+1758374787268,]
+1758374787268,Total active sessions: 5
+1758374787268,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758374787269,Session initialized for sessionId: 7b644951-c56b-4ddc-8359-cc8a155ae798
+1758375021419,POST /mcp request for endpoint: m2m-arc
+1758375021419,Authentication method: oauth
+1758375021419,Session ID: new session
+1758375021419,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375021419,Generated new session ID: da4e2abb-c9f1-4e9f-a135-783fbf50cd84 for endpoint: m2m-arc
+1758375021419,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session da4e2abb-c9f1-4e9f-a135-783fbf50cd84"
+1758375021419,Using MetaMCP server instance for public endpoint session da4e2abb-c9f1-4e9f-a135-783fbf50cd84 (endpoint: m2m-arc)
+1758375021419,Created public endpoint StreamableHttp transport
+1758375021419,Session da4e2abb-c9f1-4e9f-a135-783fbf50cd84 will be cleaned up when DELETE request is received
+1758375021419,Public Endpoint Client <-> Proxy sessionId: da4e2abb-c9f1-4e9f-a135-783fbf50cd84 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375021419,Stored transport for sessionId: da4e2abb-c9f1-4e9f-a135-783fbf50cd84
+1758375021419,Current stored sessions: [
+1758375021419,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375021419,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375021419,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375021419,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375021419,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375021419,  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84'
+1758375021419,]
+1758375021419,Total active sessions: 6
+1758375021419,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375021420,Session initialized for sessionId: da4e2abb-c9f1-4e9f-a135-783fbf50cd84
+1758375021583,POST /mcp request for endpoint: m2m-arc
+1758375021583,Authentication method: oauth
+1758375021583,Session ID: da4e2abb-c9f1-4e9f-a135-783fbf50cd84
+1758375021583,Available session IDs: [
+1758375021583,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375021583,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375021583,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375021583,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375021583,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375021583,  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84'
+1758375021583,]
+1758375021583,Looking for sessionId: da4e2abb-c9f1-4e9f-a135-783fbf50cd84
+1758375021583,Looking up existing session: da4e2abb-c9f1-4e9f-a135-783fbf50cd84
+1758375021583,Available sessions: [
+1758375021583,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375021583,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375021583,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375021583,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375021583,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375021583,  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84'
+1758375021583,]
+1758375021583,"Found session da4e2abb-c9f1-4e9f-a135-783fbf50cd84, handling request"
+1758375021735,Looking up existing session: da4e2abb-c9f1-4e9f-a135-783fbf50cd84
+1758375021735,Available sessions: [
+1758375021735,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375021735,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375021735,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375021735,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375021735,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375021735,  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84'
+1758375021735,]
+1758375021735,"Found session da4e2abb-c9f1-4e9f-a135-783fbf50cd84, handling request"
+1758375067364,Cleaned up expired OAuth codes and tokens
+1758375087143,POST /mcp request for endpoint: m2m-arc
+1758375087143,Authentication method: oauth
+1758375087143,Session ID: new session
+1758375087143,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375087143,Generated new session ID: 8d090440-e923-4646-b53e-17f0202c4e2e for endpoint: m2m-arc
+1758375087143,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session 8d090440-e923-4646-b53e-17f0202c4e2e"
+1758375087145,Using MetaMCP server instance for public endpoint session 8d090440-e923-4646-b53e-17f0202c4e2e (endpoint: m2m-arc)
+1758375087145,Created public endpoint StreamableHttp transport
+1758375087145,Session 8d090440-e923-4646-b53e-17f0202c4e2e will be cleaned up when DELETE request is received
+1758375087145,Public Endpoint Client <-> Proxy sessionId: 8d090440-e923-4646-b53e-17f0202c4e2e for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375087145,Stored transport for sessionId: 8d090440-e923-4646-b53e-17f0202c4e2e
+1758375087145,Current stored sessions: [
+1758375087145,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375087145,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375087145,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375087145,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375087145,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375087145,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375087145,  '8d090440-e923-4646-b53e-17f0202c4e2e'
+1758375087145,]
+1758375087145,Total active sessions: 7
+1758375087145,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375087145,Session initialized for sessionId: 8d090440-e923-4646-b53e-17f0202c4e2e
+1758375255467,New StreamableHttp connection request
+1758375255467,"Query parameters: {""url"":""https://mcpa-dev.m2mtechconnect.com/metamcp/m2m-arc/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758375255471,Created StreamableHttp server transport
+1758375255471,Created StreamableHttp client transport
+1758375255471,Client <-> Proxy  sessionId: 3d0dff43-5064-4813-81e0-924e373818ed
+1758375255538,"Error from MCP server: Error: Error POSTing to endpoint (HTTP 401): {""error"":""invalid_token"",""error_description"":""The provided OAuth token is invalid or has expired."",""timestamp"":""2025-09-20T13:34:15.531Z""}"
+1758375255538,    at StreamableHTTPClientTransport.send (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/client/streamableHttp.js:284:23)
+1758375255538,    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+1758375256584, ⨯ ReferenceError: sessionStorage is not defined
+1758375256584,    at new h (.next/server/app/fe-oauth/callback/page.js:2:8275)
+1758375256584,    at i (.next/server/app/fe-oauth/callback/page.js:2:11268)
+1758375256584,    at s (.next/server/chunks/3275.js:1:9379)
+1758375256584,    at S (.next/server/app/[locale]/(sidebar)/mcp-servers/[uuid]/page.js:1:17353) {
+1758375256584,  digest: '2980865005'
+1758375256584,}
+1758375257164,POST /mcp request for endpoint: m2m-arc
+1758375257164,Authentication method: oauth
+1758375257164,Session ID: new session
+1758375257164,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375257164,Generated new session ID: a7897df7-16aa-482c-9b86-853372668137 for endpoint: m2m-arc
+1758375257164,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session a7897df7-16aa-482c-9b86-853372668137"
+1758375257165,Using MetaMCP server instance for public endpoint session a7897df7-16aa-482c-9b86-853372668137 (endpoint: m2m-arc)
+1758375257165,Created public endpoint StreamableHttp transport
+1758375257165,Session a7897df7-16aa-482c-9b86-853372668137 will be cleaned up when DELETE request is received
+1758375257165,Public Endpoint Client <-> Proxy sessionId: a7897df7-16aa-482c-9b86-853372668137 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375257165,Stored transport for sessionId: a7897df7-16aa-482c-9b86-853372668137
+1758375257165,Current stored sessions: [
+1758375257165,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375257165,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375257165,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375257165,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375257165,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375257165,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375257165,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375257165,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375257165,]
+1758375257165,Total active sessions: 8
+1758375257165,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375257165,Session initialized for sessionId: a7897df7-16aa-482c-9b86-853372668137
+1758375257355,POST /mcp request for endpoint: m2m-arc
+1758375257355,Authentication method: oauth
+1758375257355,Session ID: 841eb384-3010-4d58-88b0-125a7a63f421
+1758375257355,Available session IDs: [
+1758375257355,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375257355,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375257355,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375257355,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375257355,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375257355,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375257355,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375257355,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375257355,]
+1758375257355,Looking for sessionId: 841eb384-3010-4d58-88b0-125a7a63f421
+1758375257355,Looking up existing session: 841eb384-3010-4d58-88b0-125a7a63f421
+1758375257355,Available sessions: [
+1758375257355,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375257355,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375257355,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375257355,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375257355,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375257355,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375257355,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375257355,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375257355,]
+1758375257355,Transport not found for sessionId 841eb384-3010-4d58-88b0-125a7a63f421. Available sessions: [
+1758375257355,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375257355,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375257355,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375257355,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375257355,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375257355,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375257355,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375257355,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375257355,]
+1758375321419,POST /mcp request for endpoint: m2m-arc
+1758375321419,Authentication method: oauth
+1758375321419,Session ID: 841eb384-3010-4d58-88b0-125a7a63f421
+1758375321419,Available session IDs: [
+1758375321419,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375321419,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375321419,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375321419,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375321419,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375321419,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375321419,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375321419,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375321419,]
+1758375321419,Looking for sessionId: 841eb384-3010-4d58-88b0-125a7a63f421
+1758375321419,Looking up existing session: 841eb384-3010-4d58-88b0-125a7a63f421
+1758375321420,Transport not found for sessionId 841eb384-3010-4d58-88b0-125a7a63f421. Available sessions: [
+1758375321420,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375321420,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375321420,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375321420,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375321420,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375321420,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375321420,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375321420,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375321420,]
+1758375321420,Available sessions: [
+1758375321420,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375321420,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375321420,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375321420,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375321420,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375321420,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375321420,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375321420,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375321420,]
+1758375325612,POST /mcp request for endpoint: m2m-arc
+1758375325612,Authentication method: oauth
+1758375325612,Session ID: 841eb384-3010-4d58-88b0-125a7a63f421
+1758375325612,Available session IDs: [
+1758375325612,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375325612,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375325612,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375325612,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375325612,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375325612,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375325612,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375325612,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375325612,]
+1758375325612,Looking for sessionId: 841eb384-3010-4d58-88b0-125a7a63f421
+1758375325612,Looking up existing session: 841eb384-3010-4d58-88b0-125a7a63f421
+1758375325612,Available sessions: [
+1758375325612,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375325612,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375325612,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375325612,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375325612,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375325612,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375325612,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375325612,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375325612,]
+1758375325613,Transport not found for sessionId 841eb384-3010-4d58-88b0-125a7a63f421. Available sessions: [
+1758375325613,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375325613,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375325613,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375325613,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375325613,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375325613,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375325613,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375325613,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375325613,]
+1758375333220,"Received DELETE message for sessionId dbc75ec9-186a-40b6-8027-339e36d0f9d6, MCP server: Unknown Server"
+1758375333500,New StreamableHttp connection request
+1758375333500,"Query parameters: {""url"":""https://mcpa-dev.m2mtechconnect.com/metamcp/m2m-arc/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758375333503,Created StreamableHttp server transport
+1758375333503,Created StreamableHttp client transport
+1758375333503,Client <-> Proxy  sessionId: 96525430-7fab-4ba1-acb2-a9b124129688
+1758375333557,Proxy  <-> Server sessionId: b4ed1828-b737-4bfe-9a7d-01c1969e243b
+1758375367368,Cleaned up expired OAuth codes and tokens
+1758375370418,Invalidating idle session for server af5bf173-adc1-44c9-a35a-00069c8dd10f
+1758375370418,Creating new connection for server m2m-arc-endpoint (af5bf173-adc1-44c9-a35a-00069c8dd10f) with namespace: none
+1758375370420,Connecting to server m2m-arc-endpoint (af5bf173-adc1-44c9-a35a-00069c8dd10f) with max attempts: 1
+1758375370518,POST /mcp request for endpoint: m2m-arc
+1758375370518,Authentication method: oauth
+1758375370518,Session ID: b3abb309-f2a8-4709-a44a-4ee7a1320b32
+1758375370519,Available session IDs: [
+1758375370519,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375370519,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375370519,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375370519,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375370519,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375370519,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375370519,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375370519,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375370519,]
+1758375370519,Looking for sessionId: b3abb309-f2a8-4709-a44a-4ee7a1320b32
+1758375370519,Looking up existing session: b3abb309-f2a8-4709-a44a-4ee7a1320b32
+1758375370521,Transport not found for sessionId b3abb309-f2a8-4709-a44a-4ee7a1320b32. Available sessions: [
+1758375370521,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375370521,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375370521,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375370521,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375370521,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375370521,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375370521,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375370521,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375370521,]
+1758375370521,Available sessions: [
+1758375370521,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375370521,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375370521,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375370521,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375370521,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375370521,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375370521,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375370521,  'a7897df7-16aa-482c-9b86-853372668137'
+1758375370521,]
+1758375370533,"[MetaMCP][client] Error connecting to MetaMCP client (attempt 1/1) Error: Error POSTing to endpoint (HTTP 404): {""error"":""Session not found"",""message"":""Transport not found for sessionId b3abb309-f2a8-4709-a44a-4ee7a1320b32"",""available_sessions"":[""b09f6fe5-612e-4710-b2be-2e68e97720ca"",""bb2b6b77-4641-46ac-8a6c-d4fe70420f83"",""45766637-6341-4c51-808d-ce39b641bff0"",""63f5867b-e7da-4ae6-92fa-877f1af405ab"",""7b644951-c56b-4ddc-8359-cc8a155ae798"",""da4e2abb-c9f1-4e9f-a135-783fbf50cd84"",""8d090440-e923-4646-b53e-17f0202c4e2e"",""a7897df7-16aa-482c-9b86-853372668137""],""timestamp"":""2025-09-20T13:36:10.520Z""}"
+1758375370533,    at StreamableHTTPClientTransport.send (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/client/streamableHttp.js:284:23)
+1758375370533,    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+1758375370533,    at async Client.notification (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:360:9)
+1758375370533,    at async Client.connect (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/client/index.js:87:13)
+1758375370533,    at async connectMetaMcpClient (file:///app/apps/backend/dist/index.js:2460:11)
+1758375370533,    at async _McpServerPool.createNewConnection (file:///app/apps/backend/dist/index.js:2996:33)
+1758375370533,    at async _McpServerPool.createIdleSession (file:///app/apps/backend/dist/index.js:3040:27)
+1758375370533,    at async _McpServerPool.invalidateIdleSession (file:///app/apps/backend/dist/index.js:3187:9)
+1758375370533,Invalidated and refreshed idle session for updated server: m2m-arc-endpoint (af5bf173-adc1-44c9-a35a-00069c8dd10f)
+1758375393720,Error from MCP server: StreamableHTTPError: Streamable HTTP error: Failed to open SSE stream: Gateway Time-out
+1758375393720,    at StreamableHTTPClientTransport._startOrAuthSse (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/client/streamableHttp.js:99:23)
+1758375393720,    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+1758375393720,  code: 504
+1758375393720,}
+1758375393720,Error from MCP server: StreamableHTTPError: Streamable HTTP error: Failed to open SSE stream: Gateway Time-out
+1758375393720,    at StreamableHTTPClientTransport._startOrAuthSse (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/client/streamableHttp.js:99:23)
+1758375393720,    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+1758375393720,  code: 504
+1758375393720,}
+1758375465274,POST /mcp request for endpoint: m2m-arc
+1758375465274,Authentication method: oauth
+1758375465274,Session ID: new session
+1758375465274,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375465274,Generated new session ID: 0a617bfb-5a68-4abd-889f-4863adb1d74e for endpoint: m2m-arc
+1758375465274,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session 0a617bfb-5a68-4abd-889f-4863adb1d74e"
+1758375465274,Using MetaMCP server instance for public endpoint session 0a617bfb-5a68-4abd-889f-4863adb1d74e (endpoint: m2m-arc)
+1758375465274,Created public endpoint StreamableHttp transport
+1758375465274,Session 0a617bfb-5a68-4abd-889f-4863adb1d74e will be cleaned up when DELETE request is received
+1758375465274,Public Endpoint Client <-> Proxy sessionId: 0a617bfb-5a68-4abd-889f-4863adb1d74e for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375465274,Stored transport for sessionId: 0a617bfb-5a68-4abd-889f-4863adb1d74e
+1758375465275,Current stored sessions: [
+1758375465275,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375465275,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375465275,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375465275,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375465275,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375465275,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375465275,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375465275,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758375465275,  '0a617bfb-5a68-4abd-889f-4863adb1d74e'
+1758375465275,]
+1758375465275,Total active sessions: 9
+1758375465275,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375465275,Session initialized for sessionId: 0a617bfb-5a68-4abd-889f-4863adb1d74e
+1758375469665,POST /mcp request for endpoint: m2m-arc
+1758375469665,Authentication method: oauth
+1758375469665,Session ID: new session
+1758375469665,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375469665,Generated new session ID: 457e7d5f-c33f-4c1f-9b7d-16fba13af5e2 for endpoint: m2m-arc
+1758375469666,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session 457e7d5f-c33f-4c1f-9b7d-16fba13af5e2"
+1758375469666,Using MetaMCP server instance for public endpoint session 457e7d5f-c33f-4c1f-9b7d-16fba13af5e2 (endpoint: m2m-arc)
+1758375469666,Created public endpoint StreamableHttp transport
+1758375469666,Session 457e7d5f-c33f-4c1f-9b7d-16fba13af5e2 will be cleaned up when DELETE request is received
+1758375469666,Public Endpoint Client <-> Proxy sessionId: 457e7d5f-c33f-4c1f-9b7d-16fba13af5e2 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375469666,Stored transport for sessionId: 457e7d5f-c33f-4c1f-9b7d-16fba13af5e2
+1758375469666,Current stored sessions: [
+1758375469666,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375469666,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375469666,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375469666,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375469666,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375469666,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375469666,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375469666,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758375469666,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758375469666,  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2'
+1758375469666,]
+1758375469666,Total active sessions: 10
+1758375469666,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375469667,Session initialized for sessionId: 457e7d5f-c33f-4c1f-9b7d-16fba13af5e2
+1758375496262,"Received DELETE message for sessionId 96525430-7fab-4ba1-acb2-a9b124129688, MCP server: Unknown Server"
+1758375496305,Cleaning up proxy session 96525430-7fab-4ba1-acb2-a9b124129688
+1758375496305,Client transport closed
+1758375496305,Closing server transport due to client close
+1758375496307,Server transport closed
+1758375496307,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758375496307,Cleaning up proxy session 96525430-7fab-4ba1-acb2-a9b124129688
+1758375496307,Client transport closed
+1758375496307,"Cleanup already called, skipping"
+1758375496307,Server transport closed
+1758375496307,"Cleanup already called, skipping"
+1758375496307,Server transport closed
+1758375496307,"Cleanup already called, skipping"
+1758375496307,Session 96525430-7fab-4ba1-acb2-a9b124129688 cleanup completed
+1758375496307,"Cleanup already called, skipping"
+1758375496307,Session 96525430-7fab-4ba1-acb2-a9b124129688 cleanup completed
+1758375496307,Session 96525430-7fab-4ba1-acb2-a9b124129688 terminated and cleaned up successfully
+1758375496307,MCP proxy cleanup completed successfully
+1758375545888,New STDIO connection request
+1758375545888,"Query parameters: {""command"":""npx"",""args"":""-y tavily-mcp"",""env"":""{\""TAVILY_API_KEY\"":\""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\""}"",""transportType"":""STDIO""}"
+1758375545889,Looking for server with command: /usr/bin/npx -y tavily-mcp
+1758375545891,Found 6 servers in database
+1758375545891,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758375545891,No server found for command: /usr/bin/npx -y tavily-mcp
+1758375545891,"STDIO transport: command=/usr/bin/npx, args=-y,tavily-mcp"
+1758375545895,Created server transport
+1758375545895,Created client transport
+1758375546076,Connection closed for session 4f51d0d0-39bc-4fe1-8211-5ce2807f6221
+1758375546076,Cleaning up proxy session 4f51d0d0-39bc-4fe1-8211-5ce2807f6221
+1758375546076,Client transport closed
+1758375546076,Closing server transport due to client close
+1758375546076,Server transport closed
+1758375546076,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758375546076,Cleaning up proxy session 4f51d0d0-39bc-4fe1-8211-5ce2807f6221
+1758375546077,Client transport closed
+1758375546077,"Cleanup already called, skipping"
+1758375546077,Client transport closed
+1758375546077,"Cleanup already called, skipping"
+1758375546077,Session 4f51d0d0-39bc-4fe1-8211-5ce2807f6221 cleanup completed
+1758375546077,"Cleanup already called, skipping"
+1758375546077,Session 4f51d0d0-39bc-4fe1-8211-5ce2807f6221 cleanup completed
+1758375546077,MCP proxy cleanup completed successfully
+1758375546080,Server transport closed
+1758375546080,"Cleanup already called, skipping"
+1758375564389,New STDIO connection request
+1758375564389,"Query parameters: {""command"":""npx"",""args"":""-y tavily-mcp"",""env"":""{\""TAVILY_API_KEY\"":\""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\""}"",""transportType"":""STDIO""}"
+1758375564389,Looking for server with command: /usr/bin/npx -y tavily-mcp
+1758375564391,Found 6 servers in database
+1758375564391,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758375564391,No server found for command: /usr/bin/npx -y tavily-mcp
+1758375564391,"STDIO transport: command=/usr/bin/npx, args=-y,tavily-mcp"
+1758375564394,Created server transport
+1758375564394,Created client transport
+1758375564558,Connection closed for session 3b75b316-236c-4ac4-b331-4166d0430aa4
+1758375564559,Cleaning up proxy session 3b75b316-236c-4ac4-b331-4166d0430aa4
+1758375564559,Client transport closed
+1758375564559,Closing server transport due to client close
+1758375564559,Server transport closed
+1758375564559,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758375564559,Cleaning up proxy session 3b75b316-236c-4ac4-b331-4166d0430aa4
+1758375564559,Client transport closed
+1758375564559,"Cleanup already called, skipping"
+1758375564559,Client transport closed
+1758375564559,"Cleanup already called, skipping"
+1758375564559,Session 3b75b316-236c-4ac4-b331-4166d0430aa4 cleanup completed
+1758375564559,"Cleanup already called, skipping"
+1758375564560,Session 3b75b316-236c-4ac4-b331-4166d0430aa4 cleanup completed
+1758375564560,MCP proxy cleanup completed successfully
+1758375564561,Server transport closed
+1758375564561,"Cleanup already called, skipping"
+1758375667376,Cleaned up expired OAuth codes and tokens
+1758375690518,New STDIO connection request
+1758375690518,"Query parameters: {""command"":""npx"",""args"":""-y tavily-mcp"",""env"":""{\""TAVILY_API_KEY\"":\""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\""}"",""transportType"":""STDIO""}"
+1758375690519,Looking for server with command: /usr/bin/npx -y tavily-mcp
+1758375690520,Found 6 servers in database
+1758375690520,Checking server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc): npx -y tavily-mcp
+1758375690520,No server found for command: /usr/bin/npx -y tavily-mcp
+1758375690520,"STDIO transport: command=/usr/bin/npx, args=-y,tavily-mcp"
+1758375690523,Created server transport
+1758375690523,Created client transport
+1758375690695,Connection closed for session 351048d3-d4e4-42cd-8378-4f3e7c8df9f7
+1758375690695,Cleaning up proxy session 351048d3-d4e4-42cd-8378-4f3e7c8df9f7
+1758375690696,Client transport closed
+1758375690696,Closing server transport due to client close
+1758375690696,Server transport closed
+1758375690696,Triggering MCP proxy cleanup (server session/subprocess cleanup)
+1758375690696,Cleaning up proxy session 351048d3-d4e4-42cd-8378-4f3e7c8df9f7
+1758375690697,Client transport closed
+1758375690697,"Cleanup already called, skipping"
+1758375690697,Client transport closed
+1758375690697,"Cleanup already called, skipping"
+1758375690697,Session 351048d3-d4e4-42cd-8378-4f3e7c8df9f7 cleanup completed
+1758375690697,"Cleanup already called, skipping"
+1758375690697,Session 351048d3-d4e4-42cd-8378-4f3e7c8df9f7 cleanup completed
+1758375690697,MCP proxy cleanup completed successfully
+1758375690700,Server transport closed
+1758375690700,"Cleanup already called, skipping"
+1758375747221,"Received DELETE message for sessionId 5f28a460-47e0-41f9-bbca-88863d88232b, MCP server: Unknown Server"
+1758375759521,New StreamableHttp connection request
+1758375759521,"Query parameters: {""url"":""https://api.arcade.dev/v1/mcps/arcade-anon/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758375759523,Created StreamableHttp server transport
+1758375759523,Created StreamableHttp client transport
+1758375759524,Client <-> Proxy  sessionId: 7d7e84da-0212-4d30-aaef-a3e647909b72
+1758375759685,Proxy  <-> Server sessionId: d15467179fdcf1141980d7c984f37f68
+1758375837893,New StreamableHttp connection request
+1758375837893,"Query parameters: {""url"":""https://api.arcade.dev/v1/mcps/arcade-anon/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758375837896,Created StreamableHttp server transport
+1758375837896,Created StreamableHttp client transport
+1758375837896,Client <-> Proxy  sessionId: a69c364d-2202-4415-a8c1-cd9d7688f5e1
+1758375837928,New StreamableHttp connection request
+1758375837928,"Query parameters: {""url"":""https://api.arcade.dev/v1/mcps/arcade-anon/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758375837931,Created StreamableHttp server transport
+1758375837931,Created StreamableHttp client transport
+1758375837931,Client <-> Proxy  sessionId: fe13bbd2-ae97-4fa5-ab97-a5bd4a453163
+1758375838014,Proxy  <-> Server sessionId: 8e6f93df5b6c49467a20930cf962296c
+1758375838200,Proxy  <-> Server sessionId: fe45972e9ce734441648fed41e6a744a
+1758375849741,New StreamableHttp connection request
+1758375849742,"Query parameters: {""url"":""https://mcpa-dev.m2mtechconnect.com/metamcp/m2m-arc/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758375849744,Created StreamableHttp server transport
+1758375849744,Created StreamableHttp client transport
+1758375849745,Client <-> Proxy  sessionId: e1c51239-9782-402c-81c0-01cb00637820
+1758375849880,POST /mcp request for endpoint: m2m-arc
+1758375849880,Authentication method: oauth
+1758375849880,Session ID: new session
+1758375849880,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375849880,Generated new session ID: ea64794b-2949-483e-8bb5-f51ca9a004fb for endpoint: m2m-arc
+1758375849880,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session ea64794b-2949-483e-8bb5-f51ca9a004fb"
+1758375849880,Using MetaMCP server instance for public endpoint session ea64794b-2949-483e-8bb5-f51ca9a004fb (endpoint: m2m-arc)
+1758375849880,Created public endpoint StreamableHttp transport
+1758375849880,Session ea64794b-2949-483e-8bb5-f51ca9a004fb will be cleaned up when DELETE request is received
+1758375849880,Public Endpoint Client <-> Proxy sessionId: ea64794b-2949-483e-8bb5-f51ca9a004fb for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375849880,Stored transport for sessionId: ea64794b-2949-483e-8bb5-f51ca9a004fb
+1758375849881,Current stored sessions: [
+1758375849881,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375849881,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375849881,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375849881,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375849881,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375849881,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375849881,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375849881,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758375849881,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758375849881,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758375849881,  'ea64794b-2949-483e-8bb5-f51ca9a004fb'
+1758375849881,]
+1758375849881,Total active sessions: 11
+1758375849881,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375849881,Session initialized for sessionId: ea64794b-2949-483e-8bb5-f51ca9a004fb
+1758375849886,Proxy  <-> Server sessionId: ea64794b-2949-483e-8bb5-f51ca9a004fb
+1758375896162,New StreamableHttp connection request
+1758375896162,"Query parameters: {""url"":""https://mcpa-dev.m2mtechconnect.com/metamcp/m2m-arc/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758375896165,Created StreamableHttp server transport
+1758375896165,Created StreamableHttp client transport
+1758375896165,Client <-> Proxy  sessionId: 5bf1ba12-73e9-4a61-8ed1-6621cf8b73b6
+1758375896200,POST /mcp request for endpoint: m2m-arc
+1758375896200,Authentication method: oauth
+1758375896200,Session ID: new session
+1758375896200,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375896200,Generated new session ID: c6a18479-57cb-4e76-a922-d7648c84216d for endpoint: m2m-arc
+1758375896200,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session c6a18479-57cb-4e76-a922-d7648c84216d"
+1758375896200,Using MetaMCP server instance for public endpoint session c6a18479-57cb-4e76-a922-d7648c84216d (endpoint: m2m-arc)
+1758375896200,Created public endpoint StreamableHttp transport
+1758375896200,Session c6a18479-57cb-4e76-a922-d7648c84216d will be cleaned up when DELETE request is received
+1758375896200,Public Endpoint Client <-> Proxy sessionId: c6a18479-57cb-4e76-a922-d7648c84216d for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375896200,Stored transport for sessionId: c6a18479-57cb-4e76-a922-d7648c84216d
+1758375896200,Current stored sessions: [
+1758375896200,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375896200,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375896200,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375896200,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375896200,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375896200,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375896200,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375896200,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758375896200,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758375896200,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758375896200,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758375896200,  'c6a18479-57cb-4e76-a922-d7648c84216d'
+1758375896200,]
+1758375896200,Total active sessions: 12
+1758375896200,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375896201,Session initialized for sessionId: c6a18479-57cb-4e76-a922-d7648c84216d
+1758375896205,Proxy  <-> Server sessionId: c6a18479-57cb-4e76-a922-d7648c84216d
+1758375896349,Connection refused. Is the MCP server running?
+1758375907804,Connection refused. Is the MCP server running?
+1758375920413,POST /mcp request for endpoint: m2m-arc
+1758375920413,Authentication method: oauth
+1758375920413,Session ID: c6a18479-57cb-4e76-a922-d7648c84216d
+1758375920414,Available session IDs: [
+1758375920414,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375920414,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375920414,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375920414,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375920414,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375920414,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375920414,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375920414,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758375920414,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758375920414,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758375920414,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758375920414,  'c6a18479-57cb-4e76-a922-d7648c84216d'
+1758375920414,]
+1758375920414,Looking for sessionId: c6a18479-57cb-4e76-a922-d7648c84216d
+1758375920414,Looking up existing session: c6a18479-57cb-4e76-a922-d7648c84216d
+1758375920414,Available sessions: [
+1758375920414,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758375920414,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758375920414,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758375920414,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758375920414,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758375920414,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758375920414,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758375920414,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758375920414,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758375920414,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758375920414,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758375920414,  'c6a18479-57cb-4e76-a922-d7648c84216d'
+1758375920414,]
+1758375920414,"Found session c6a18479-57cb-4e76-a922-d7648c84216d, handling request"
+1758375920426,"Converted idle session to active for server 69a1f47a-4991-440c-9a8a-758d1360301b, session idle_1cded0b5-9be1-4b16-a18f-deceb2eead0e_1758375849880"
+1758375920426,Creating new connection for server m2m-tools (69a1f47a-4991-440c-9a8a-758d1360301b) with namespace: 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375920426,"Converted idle session to active for server f94b255c-7c1f-40c6-8931-70dabced22c3, session idle_1cded0b5-9be1-4b16-a18f-deceb2eead0e_1758375849880"
+1758375920427,Creating new connection for server arcade (f94b255c-7c1f-40c6-8931-70dabced22c3) with namespace: 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375920427,"Converted idle session to active for server 76d8a6ac-6396-484b-b70c-9b04a46fb1fc, session idle_1cded0b5-9be1-4b16-a18f-deceb2eead0e_1758375849880"
+1758375920427,Creating new connection for server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc) with namespace: 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758375920436,Connecting to server m2m-tools (69a1f47a-4991-440c-9a8a-758d1360301b) with max attempts: 1
+1758375920525,Connecting to server arcade (f94b255c-7c1f-40c6-8931-70dabced22c3) with max attempts: 1
+1758375920525,Connecting to server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc) with max attempts: 1
+1758375920531,Setting up crash handler for server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc)
+1758375920612,"Error fetching tools from: arcade Error: Error POSTing to endpoint (HTTP 404): {""name"":""session_not_found"",""message"":""Invalid session ID""}"
+1758375920612,    at StreamableHTTPClientTransport.send (file:///app/node_modules/.pnpm/@modelcontextprotocol+sdk@1.16.0/node_modules/@modelcontextprotocol/sdk/dist/esm/client/streamableHttp.js:284:23)
+1758375920612,    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+1758375920785,Created background idle session for server [arcade] f94b255c-7c1f-40c6-8931-70dabced22c3
+1758375924081,[MetaMCP][Tavily-Search] Tavily MCP server running on stdio 
+1758375924089,Created background idle session for server [Tavily-Search] 76d8a6ac-6396-484b-b70c-9b04a46fb1fc
+1758375928654,Created background idle session for server [m2m-tools] 69a1f47a-4991-440c-9a8a-758d1360301b
+1758375956676,"Received DELETE message for sessionId 0723d5fa-d960-4ef0-a6ad-53e17c953faf, MCP server: Unknown Server"
+1758375967365,Cleaned up expired OAuth codes and tokens
+1758376011779,POST /mcp request for endpoint: m2m-arc
+1758376011779,Authentication method: oauth
+1758376011779,Session ID: new session
+1758376011779,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376011779,Generated new session ID: 4cc6b552-b002-4b66-ba35-511aa556fde2 for endpoint: m2m-arc
+1758376011779,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session 4cc6b552-b002-4b66-ba35-511aa556fde2"
+1758376011779,Using MetaMCP server instance for public endpoint session 4cc6b552-b002-4b66-ba35-511aa556fde2 (endpoint: m2m-arc)
+1758376011780,Created public endpoint StreamableHttp transport
+1758376011780,Session 4cc6b552-b002-4b66-ba35-511aa556fde2 will be cleaned up when DELETE request is received
+1758376011780,Public Endpoint Client <-> Proxy sessionId: 4cc6b552-b002-4b66-ba35-511aa556fde2 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376011780,Stored transport for sessionId: 4cc6b552-b002-4b66-ba35-511aa556fde2
+1758376011780,Current stored sessions: [
+1758376011780,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376011780,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376011780,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376011780,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376011780,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376011780,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376011780,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376011780,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376011780,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376011780,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376011780,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376011780,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376011780,  '4cc6b552-b002-4b66-ba35-511aa556fde2'
+1758376011780,]
+1758376011780,Total active sessions: 13
+1758376011780,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376011780,Session initialized for sessionId: 4cc6b552-b002-4b66-ba35-511aa556fde2
+1758376012199,POST /mcp request for endpoint: m2m-arc
+1758376012199,Authentication method: oauth
+1758376012199,Session ID: 4cc6b552-b002-4b66-ba35-511aa556fde2
+1758376012199,Available session IDs: [
+1758376012199,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376012199,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376012199,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376012199,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376012199,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376012199,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376012199,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376012199,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376012199,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376012199,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376012199,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376012199,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376012199,  '4cc6b552-b002-4b66-ba35-511aa556fde2'
+1758376012199,]
+1758376012199,Looking for sessionId: 4cc6b552-b002-4b66-ba35-511aa556fde2
+1758376012199,Looking up existing session: 4cc6b552-b002-4b66-ba35-511aa556fde2
+1758376012199,Available sessions: [
+1758376012199,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376012199,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376012199,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376012199,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376012199,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376012199,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376012199,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376012199,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376012199,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376012199,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376012199,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376012199,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376012199,  '4cc6b552-b002-4b66-ba35-511aa556fde2'
+1758376012199,]
+1758376012199,"Found session 4cc6b552-b002-4b66-ba35-511aa556fde2, handling request"
+1758376012212,"Converted idle session to active for server 69a1f47a-4991-440c-9a8a-758d1360301b, session idle_1cded0b5-9be1-4b16-a18f-deceb2eead0e_1758375896200"
+1758376012212,Creating new connection for server m2m-tools (69a1f47a-4991-440c-9a8a-758d1360301b) with namespace: 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376012212,"Converted idle session to active for server f94b255c-7c1f-40c6-8931-70dabced22c3, session idle_1cded0b5-9be1-4b16-a18f-deceb2eead0e_1758375896200"
+1758376012212,Creating new connection for server arcade (f94b255c-7c1f-40c6-8931-70dabced22c3) with namespace: 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376012213,"Converted idle session to active for server 76d8a6ac-6396-484b-b70c-9b04a46fb1fc, session idle_1cded0b5-9be1-4b16-a18f-deceb2eead0e_1758375896200"
+1758376012213,Creating new connection for server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc) with namespace: 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376012222,Connecting to server m2m-tools (69a1f47a-4991-440c-9a8a-758d1360301b) with max attempts: 1
+1758376012249,Connecting to server arcade (f94b255c-7c1f-40c6-8931-70dabced22c3) with max attempts: 1
+1758376012251,Connecting to server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc) with max attempts: 1
+1758376012257,Setting up crash handler for server Tavily-Search (76d8a6ac-6396-484b-b70c-9b04a46fb1fc)
+1758376012504,Created background idle session for server [arcade] f94b255c-7c1f-40c6-8931-70dabced22c3
+1758376016002,[MetaMCP][Tavily-Search] Tavily MCP server running on stdio 
+1758376016008,Created background idle session for server [Tavily-Search] 76d8a6ac-6396-484b-b70c-9b04a46fb1fc
+1758376016298,Created background idle session for server [m2m-tools] 69a1f47a-4991-440c-9a8a-758d1360301b
+1758376046141,"Received DELETE message for sessionId e5cedc59-72e2-4e9c-81dc-deb760384b84, MCP server: Unknown Server"
+1758376174275,POST /mcp request for endpoint: m2m-arc
+1758376174275,Authentication method: oauth
+1758376174275,Session ID: new session
+1758376174275,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376174275,Generated new session ID: edd454d7-e88b-45fb-a102-ce16a50449eb for endpoint: m2m-arc
+1758376174277,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session edd454d7-e88b-45fb-a102-ce16a50449eb"
+1758376174277,Using MetaMCP server instance for public endpoint session edd454d7-e88b-45fb-a102-ce16a50449eb (endpoint: m2m-arc)
+1758376174277,Created public endpoint StreamableHttp transport
+1758376174277,Session edd454d7-e88b-45fb-a102-ce16a50449eb will be cleaned up when DELETE request is received
+1758376174277,Public Endpoint Client <-> Proxy sessionId: edd454d7-e88b-45fb-a102-ce16a50449eb for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376174277,Stored transport for sessionId: edd454d7-e88b-45fb-a102-ce16a50449eb
+1758376174277,Current stored sessions: [
+1758376174277,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376174277,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376174277,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376174277,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376174277,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376174277,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376174277,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376174277,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376174277,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376174277,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376174277,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376174277,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376174277,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376174277,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376174277,]
+1758376174277,Total active sessions: 14
+1758376174277,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376174277,Session initialized for sessionId: edd454d7-e88b-45fb-a102-ce16a50449eb
+1758376177131,POST /mcp request for endpoint: m2m-arc
+1758376177131,Authentication method: oauth
+1758376177131,Session ID: 99567fd5-607c-466f-a445-cafe4a971084
+1758376177131,Available session IDs: [
+1758376177131,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376177131,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376177131,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376177131,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376177131,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376177131,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376177131,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376177131,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376177131,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376177131,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376177131,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376177131,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376177131,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376177131,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376177131,]
+1758376177131,Looking for sessionId: 99567fd5-607c-466f-a445-cafe4a971084
+1758376177131,Looking up existing session: 99567fd5-607c-466f-a445-cafe4a971084
+1758376177131,Available sessions: [
+1758376177131,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376177131,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376177131,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376177131,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376177131,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376177131,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376177131,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376177131,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376177131,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376177131,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376177131,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376177131,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376177131,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376177131,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376177131,]
+1758376177131,Transport not found for sessionId 99567fd5-607c-466f-a445-cafe4a971084. Available sessions: [
+1758376177131,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376177131,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376177131,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376177131,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376177131,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376177131,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376177131,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376177131,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376177131,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376177131,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376177131,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376177131,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376177131,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376177131,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376177131,]
+1758376178495,POST /mcp request for endpoint: m2m-arc
+1758376178495,Authentication method: oauth
+1758376178495,Session ID: 9330e03b-3f49-48c1-8eb7-e240c4768d25
+1758376178495,Available session IDs: [
+1758376178495,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376178495,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376178495,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376178495,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376178495,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376178495,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376178495,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376178495,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376178495,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376178495,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376178495,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376178495,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376178495,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376178495,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376178495,]
+1758376178495,Looking for sessionId: 9330e03b-3f49-48c1-8eb7-e240c4768d25
+1758376178495,Looking up existing session: 9330e03b-3f49-48c1-8eb7-e240c4768d25
+1758376178495,Available sessions: [
+1758376178495,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376178495,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376178495,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376178495,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376178495,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376178495,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376178495,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376178495,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376178495,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376178495,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376178495,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376178495,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376178495,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376178495,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376178495,]
+1758376178495,Transport not found for sessionId 9330e03b-3f49-48c1-8eb7-e240c4768d25. Available sessions: [
+1758376178495,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376178495,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376178495,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376178495,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376178495,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376178495,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376178495,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376178495,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376178495,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376178495,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376178495,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376178495,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376178495,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376178495,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376178495,]
+1758376180034,POST /mcp request for endpoint: m2m-arc
+1758376180034,Authentication method: oauth
+1758376180034,Session ID: 59fdaf32-8977-43ce-8d83-6ea40e2426f1
+1758376180034,Available session IDs: [
+1758376180034,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376180034,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376180034,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376180034,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376180034,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376180034,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376180034,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376180034,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376180034,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376180034,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376180034,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376180034,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376180034,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376180034,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376180034,]
+1758376180034,Looking for sessionId: 59fdaf32-8977-43ce-8d83-6ea40e2426f1
+1758376180034,Looking up existing session: 59fdaf32-8977-43ce-8d83-6ea40e2426f1
+1758376180034,Available sessions: [
+1758376180034,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376180034,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376180034,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376180034,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376180034,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376180034,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376180034,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376180034,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376180034,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376180034,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376180034,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376180034,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376180034,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376180034,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376180034,]
+1758376180034,Transport not found for sessionId 59fdaf32-8977-43ce-8d83-6ea40e2426f1. Available sessions: [
+1758376180034,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376180034,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376180034,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376180034,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376180034,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376180034,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376180034,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376180034,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376180034,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376180034,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376180034,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376180034,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376180034,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376180034,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376180034,]
+1758376181350,POST /mcp request for endpoint: m2m-arc
+1758376181350,Authentication method: oauth
+1758376181350,Session ID: 8ba9f107-f92f-479d-9afd-5d95e45da353
+1758376181350,Available session IDs: [
+1758376181350,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376181350,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376181350,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376181350,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376181350,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376181350,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376181350,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376181350,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376181350,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376181350,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376181350,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376181350,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376181350,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376181350,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376181350,]
+1758376181350,Looking for sessionId: 8ba9f107-f92f-479d-9afd-5d95e45da353
+1758376181350,Looking up existing session: 8ba9f107-f92f-479d-9afd-5d95e45da353
+1758376181350,Available sessions: [
+1758376181350,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376181350,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376181350,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376181350,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376181350,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376181350,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376181350,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376181350,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376181350,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376181350,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376181350,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376181350,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376181350,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376181350,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376181350,]
+1758376181350,Transport not found for sessionId 8ba9f107-f92f-479d-9afd-5d95e45da353. Available sessions: [
+1758376181350,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376181350,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376181350,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376181350,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376181350,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376181350,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376181350,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376181350,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376181350,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376181350,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376181350,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376181350,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376181350,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376181350,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376181350,]
+1758376188165,POST /mcp request for endpoint: m2m-arc
+1758376188165,Authentication method: oauth
+1758376188165,Session ID: f5690ad6-cf0c-44cb-81cd-37790f251fd0
+1758376188165,Available session IDs: [
+1758376188165,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376188165,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376188165,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376188165,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376188165,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376188165,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376188165,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376188165,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376188165,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376188165,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376188165,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376188165,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376188165,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376188165,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376188165,]
+1758376188165,Looking for sessionId: f5690ad6-cf0c-44cb-81cd-37790f251fd0
+1758376188165,Looking up existing session: f5690ad6-cf0c-44cb-81cd-37790f251fd0
+1758376188165,Available sessions: [
+1758376188165,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376188165,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376188165,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376188165,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376188165,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376188165,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376188165,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376188165,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376188165,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376188165,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376188165,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376188165,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376188165,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376188165,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376188165,]
+1758376188166,Transport not found for sessionId f5690ad6-cf0c-44cb-81cd-37790f251fd0. Available sessions: [
+1758376188166,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376188166,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376188166,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376188166,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376188166,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376188166,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376188166,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376188166,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376188166,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376188166,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376188166,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376188166,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376188166,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376188166,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376188166,]
+1758376189639,POST /mcp request for endpoint: m2m-arc
+1758376189639,Authentication method: oauth
+1758376189639,Session ID: 96c3a2aa-186a-4edf-a6fb-4c45532493cc
+1758376189639,Available session IDs: [
+1758376189639,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376189639,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376189639,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376189639,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376189639,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376189639,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376189639,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376189639,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376189639,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376189639,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376189639,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376189639,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376189639,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376189639,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376189639,]
+1758376189639,Looking for sessionId: 96c3a2aa-186a-4edf-a6fb-4c45532493cc
+1758376189639,Looking up existing session: 96c3a2aa-186a-4edf-a6fb-4c45532493cc
+1758376189639,Available sessions: [
+1758376189639,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376189639,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376189639,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376189639,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376189639,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376189639,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376189639,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376189639,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376189639,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376189639,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376189639,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376189639,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376189639,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376189639,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376189639,]
+1758376189639,Transport not found for sessionId 96c3a2aa-186a-4edf-a6fb-4c45532493cc. Available sessions: [
+1758376189639,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376189639,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376189639,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376189639,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376189639,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376189639,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376189639,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376189639,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376189639,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376189639,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376189639,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376189639,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376189639,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376189639,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376189639,]
+1758376191131,POST /mcp request for endpoint: m2m-arc
+1758376191131,Authentication method: oauth
+1758376191131,Session ID: b1f25c27-c5b6-4c67-9416-5c93979a1d6f
+1758376191131,Available session IDs: [
+1758376191131,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376191131,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376191131,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376191131,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376191131,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376191131,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376191131,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376191131,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376191131,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376191131,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376191131,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376191131,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376191131,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376191131,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376191131,]
+1758376191131,Looking for sessionId: b1f25c27-c5b6-4c67-9416-5c93979a1d6f
+1758376191131,Looking up existing session: b1f25c27-c5b6-4c67-9416-5c93979a1d6f
+1758376191131,Available sessions: [
+1758376191131,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376191131,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376191131,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376191131,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376191131,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376191131,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376191131,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376191131,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376191131,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376191131,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376191131,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376191131,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376191131,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376191131,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376191131,]
+1758376191131,Transport not found for sessionId b1f25c27-c5b6-4c67-9416-5c93979a1d6f. Available sessions: [
+1758376191131,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376191131,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376191131,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376191131,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376191131,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376191131,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376191131,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376191131,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376191131,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376191131,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376191131,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376191131,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376191131,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376191131,  'edd454d7-e88b-45fb-a102-ce16a50449eb'
+1758376191131,]
+1758376267372,Cleaned up expired OAuth codes and tokens
+1758376482607,POST /mcp request for endpoint: m2m-arc
+1758376482607,Authentication method: oauth
+1758376482607,Session ID: new session
+1758376482607,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376482607,Generated new session ID: 82e2e5f7-79d6-45c1-8412-6beb613bbfb7 for endpoint: m2m-arc
+1758376482607,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session 82e2e5f7-79d6-45c1-8412-6beb613bbfb7"
+1758376482607,Using MetaMCP server instance for public endpoint session 82e2e5f7-79d6-45c1-8412-6beb613bbfb7 (endpoint: m2m-arc)
+1758376482607,Created public endpoint StreamableHttp transport
+1758376482607,Session 82e2e5f7-79d6-45c1-8412-6beb613bbfb7 will be cleaned up when DELETE request is received
+1758376482607,Public Endpoint Client <-> Proxy sessionId: 82e2e5f7-79d6-45c1-8412-6beb613bbfb7 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376482607,Stored transport for sessionId: 82e2e5f7-79d6-45c1-8412-6beb613bbfb7
+1758376482607,Current stored sessions: [
+1758376482607,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376482607,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376482607,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376482607,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376482607,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376482607,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376482607,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376482607,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376482607,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376482607,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376482607,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376482607,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376482607,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376482607,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376482607,  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7'
+1758376482607,]
+1758376482607,Total active sessions: 15
+1758376482607,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376482608,Session initialized for sessionId: 82e2e5f7-79d6-45c1-8412-6beb613bbfb7
+1758376517758,"New MetaMCP SSE connection request for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, includeInactiveServers: true"
+1758376517758,Created MetaMCP SSE transport
+1758376517758,Created MetaMCP server instance for session a0521d15-ed54-4287-b28e-69a257e93f00
+1758376517833,MetaMCP SSE connection closed for session a0521d15-ed54-4287-b28e-69a257e93f00
+1758376517833,Cleaning up session a0521d15-ed54-4287-b28e-69a257e93f00
+1758376530468,POST /mcp request for endpoint: m2m-arc
+1758376530468,Authentication method: oauth
+1758376530468,Session ID: new session
+1758376530468,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376530468,Generated new session ID: 31758b7d-609d-4b1c-ba13-32ba6b280bb0 for endpoint: m2m-arc
+1758376530468,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session 31758b7d-609d-4b1c-ba13-32ba6b280bb0"
+1758376530468,Using MetaMCP server instance for public endpoint session 31758b7d-609d-4b1c-ba13-32ba6b280bb0 (endpoint: m2m-arc)
+1758376530468,Created public endpoint StreamableHttp transport
+1758376530468,Session 31758b7d-609d-4b1c-ba13-32ba6b280bb0 will be cleaned up when DELETE request is received
+1758376530468,Public Endpoint Client <-> Proxy sessionId: 31758b7d-609d-4b1c-ba13-32ba6b280bb0 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376530468,Stored transport for sessionId: 31758b7d-609d-4b1c-ba13-32ba6b280bb0
+1758376530469,Current stored sessions: [
+1758376530469,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376530469,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376530469,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376530469,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376530469,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376530469,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376530469,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376530469,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376530469,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376530469,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376530469,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376530469,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376530469,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376530469,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376530469,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376530469,  '31758b7d-609d-4b1c-ba13-32ba6b280bb0'
+1758376530469,]
+1758376530469,Total active sessions: 16
+1758376530469,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376530469,Session initialized for sessionId: 31758b7d-609d-4b1c-ba13-32ba6b280bb0
+1758376542429,New StreamableHttp connection request
+1758376542429,"Query parameters: {""url"":""https://mcpa-dev.m2mtechconnect.com/metamcp/m2m-arc/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758376542432,Created StreamableHttp server transport
+1758376542432,Created StreamableHttp client transport
+1758376542432,Client <-> Proxy  sessionId: 90df9ff4-e0cf-454e-97f2-b4241ea35d7a
+1758376542499,POST /mcp request for endpoint: m2m-arc
+1758376542499,Authentication method: oauth
+1758376542499,Session ID: new session
+1758376542499,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376542499,Generated new session ID: a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729 for endpoint: m2m-arc
+1758376542500,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729"
+1758376542500,Using MetaMCP server instance for public endpoint session a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729 (endpoint: m2m-arc)
+1758376542500,Created public endpoint StreamableHttp transport
+1758376542500,Session a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729 will be cleaned up when DELETE request is received
+1758376542500,Public Endpoint Client <-> Proxy sessionId: a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376542500,Stored transport for sessionId: a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729
+1758376542500,Current stored sessions: [
+1758376542500,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376542500,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376542500,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376542500,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376542500,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376542500,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376542500,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376542500,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376542500,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376542500,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376542500,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376542500,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376542500,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376542500,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376542500,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376542500,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376542500,  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729'
+1758376542500,]
+1758376542500,Total active sessions: 17
+1758376542500,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376542500,Session initialized for sessionId: a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729
+1758376542510,Proxy  <-> Server sessionId: a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729
+1758376544914,POST /mcp request for endpoint: m2m-arc
+1758376544914,Authentication method: oauth
+1758376544914,Session ID: 43744c35-625a-4f07-ab46-b208887ad679
+1758376544914,Available session IDs: [
+1758376544914,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376544914,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376544914,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376544914,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376544914,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376544914,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376544914,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376544914,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376544914,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376544914,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376544914,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376544914,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376544914,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376544914,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376544914,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376544914,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376544914,  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729'
+1758376544914,]
+1758376544914,Looking for sessionId: 43744c35-625a-4f07-ab46-b208887ad679
+1758376544914,Looking up existing session: 43744c35-625a-4f07-ab46-b208887ad679
+1758376544914,Available sessions: [
+1758376544914,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376544914,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376544914,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376544914,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376544914,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376544914,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376544914,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376544914,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376544914,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376544914,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376544914,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376544914,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376544914,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376544914,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376544914,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376544914,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376544914,  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729'
+1758376544914,]
+1758376544914,Transport not found for sessionId 43744c35-625a-4f07-ab46-b208887ad679. Available sessions: [
+1758376544914,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376544914,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376544914,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376544914,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376544914,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376544914,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376544914,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376544914,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376544914,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376544914,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376544914,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376544914,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376544914,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376544914,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376544914,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376544914,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376544914,  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729'
+1758376544914,]
+1758376567370,Cleaned up expired OAuth codes and tokens
+1758376569667,POST /mcp request for endpoint: m2m-arc
+1758376569667,Authentication method: oauth
+1758376569667,Session ID: new session
+1758376569667,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376569667,Generated new session ID: 71b18f5d-b7d6-4aab-aa41-e66bbd99a348 for endpoint: m2m-arc
+1758376569667,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session 71b18f5d-b7d6-4aab-aa41-e66bbd99a348"
+1758376569667,Using MetaMCP server instance for public endpoint session 71b18f5d-b7d6-4aab-aa41-e66bbd99a348 (endpoint: m2m-arc)
+1758376569667,Created public endpoint StreamableHttp transport
+1758376569667,Session 71b18f5d-b7d6-4aab-aa41-e66bbd99a348 will be cleaned up when DELETE request is received
+1758376569667,Public Endpoint Client <-> Proxy sessionId: 71b18f5d-b7d6-4aab-aa41-e66bbd99a348 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376569667,Stored transport for sessionId: 71b18f5d-b7d6-4aab-aa41-e66bbd99a348
+1758376569667,Current stored sessions: [
+1758376569667,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376569667,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376569667,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376569667,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376569667,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376569667,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376569667,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376569667,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376569667,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376569667,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376569667,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376569667,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376569667,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376569667,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376569667,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376569667,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376569667,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376569668,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376569668,]
+1758376569668,Total active sessions: 18
+1758376569668,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376569668,Session initialized for sessionId: 71b18f5d-b7d6-4aab-aa41-e66bbd99a348
+1758376592555,POST /mcp request for endpoint: m2m-arc
+1758376592555,Authentication method: oauth
+1758376592555,Session ID: 773509b1-a370-4f9d-9e3b-d333b607a269
+1758376592555,Available session IDs: [
+1758376592555,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376592555,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376592555,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376592555,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376592555,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376592555,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376592555,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376592555,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376592555,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376592555,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376592555,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376592555,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376592555,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376592555,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376592555,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376592555,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376592555,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376592555,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376592555,]
+1758376592555,Looking for sessionId: 773509b1-a370-4f9d-9e3b-d333b607a269
+1758376592555,Looking up existing session: 773509b1-a370-4f9d-9e3b-d333b607a269
+1758376592556,Available sessions: [
+1758376592556,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376592556,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376592556,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376592556,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376592556,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376592556,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376592556,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376592556,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376592556,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376592556,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376592556,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376592556,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376592556,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376592556,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376592556,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376592556,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376592556,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376592556,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376592556,]
+1758376592556,Transport not found for sessionId 773509b1-a370-4f9d-9e3b-d333b607a269. Available sessions: [
+1758376592556,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376592556,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376592556,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376592556,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376592556,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376592556,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376592556,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376592556,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376592556,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376592556,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376592556,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376592556,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376592556,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376592556,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376592556,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376592556,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376592556,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376592556,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376592556,]
+1758376595039,POST /mcp request for endpoint: m2m-arc
+1758376595039,Authentication method: oauth
+1758376595040,Session ID: 6f2e0090-649d-4059-ac3a-c7df0ef6cbb9
+1758376595040,Available session IDs: [
+1758376595040,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376595040,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376595040,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376595040,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376595040,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376595040,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376595040,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376595040,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376595040,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376595040,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376595040,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376595040,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376595040,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376595040,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376595040,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376595040,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376595040,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376595040,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376595040,]
+1758376595040,Looking for sessionId: 6f2e0090-649d-4059-ac3a-c7df0ef6cbb9
+1758376595040,Looking up existing session: 6f2e0090-649d-4059-ac3a-c7df0ef6cbb9
+1758376595040,Available sessions: [
+1758376595040,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376595040,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376595040,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376595040,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376595040,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376595040,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376595040,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376595040,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376595040,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376595040,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376595040,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376595040,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376595040,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376595040,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376595040,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376595040,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376595040,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376595040,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376595040,]
+1758376595040,Transport not found for sessionId 6f2e0090-649d-4059-ac3a-c7df0ef6cbb9. Available sessions: [
+1758376595040,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376595040,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376595040,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376595040,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376595040,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376595040,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376595040,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376595040,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376595040,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376595040,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376595040,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376595040,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376595040,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376595040,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376595040,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376595040,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376595040,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376595040,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376595040,]
+1758376596348,POST /mcp request for endpoint: m2m-arc
+1758376596348,Authentication method: oauth
+1758376596348,Session ID: 6d752c43-c477-4a5b-a22d-dd0a21474727
+1758376596348,Available session IDs: [
+1758376596348,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376596348,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376596348,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376596348,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376596348,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376596348,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376596348,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376596348,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376596348,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376596348,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376596348,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376596348,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376596348,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376596348,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376596348,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376596348,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376596348,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376596348,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376596348,]
+1758376596348,Looking for sessionId: 6d752c43-c477-4a5b-a22d-dd0a21474727
+1758376596348,Looking up existing session: 6d752c43-c477-4a5b-a22d-dd0a21474727
+1758376596348,Available sessions: [
+1758376596348,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376596348,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376596348,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376596348,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376596348,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376596348,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376596348,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376596348,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376596348,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376596348,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376596348,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376596348,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376596348,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376596348,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376596348,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376596348,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376596348,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376596348,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376596348,]
+1758376596349,Transport not found for sessionId 6d752c43-c477-4a5b-a22d-dd0a21474727. Available sessions: [
+1758376596349,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376596349,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376596349,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376596349,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376596349,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376596349,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376596349,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376596349,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376596349,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376596349,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376596349,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376596349,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376596349,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376596349,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376596349,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376596349,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376596349,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376596349,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376596349,]
+1758376599915,POST /mcp request for endpoint: m2m-arc
+1758376599915,Authentication method: oauth
+1758376599915,Session ID: f6ea3461-db25-47cc-b516-e7730202ddf4
+1758376599915,Available session IDs: [
+1758376599915,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376599915,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376599915,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376599915,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376599915,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376599915,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376599915,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376599915,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376599915,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376599915,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376599915,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376599915,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376599915,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376599915,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376599915,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376599915,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376599915,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376599915,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376599915,]
+1758376599915,Looking for sessionId: f6ea3461-db25-47cc-b516-e7730202ddf4
+1758376599915,Looking up existing session: f6ea3461-db25-47cc-b516-e7730202ddf4
+1758376599915,Available sessions: [
+1758376599915,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376599915,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376599915,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376599915,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376599915,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376599915,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376599915,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376599915,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376599915,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376599915,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376599915,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376599915,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376599915,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376599915,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376599915,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376599915,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376599915,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376599915,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376599915,]
+1758376599915,Transport not found for sessionId f6ea3461-db25-47cc-b516-e7730202ddf4. Available sessions: [
+1758376599915,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376599915,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376599915,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376599915,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376599915,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376599915,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376599915,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376599915,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376599915,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376599915,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376599915,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376599915,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376599915,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376599915,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376599915,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376599915,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376599915,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376599915,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376599915,]
+1758376602328,POST /mcp request for endpoint: m2m-arc
+1758376602328,Authentication method: oauth
+1758376602328,Session ID: 29d67251-c804-4f75-adba-11ccf82852ea
+1758376602328,Available session IDs: [
+1758376602328,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376602328,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376602328,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376602328,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376602328,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376602328,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376602328,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376602328,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376602328,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376602328,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376602328,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376602328,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376602328,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376602328,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376602328,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376602328,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376602328,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376602328,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376602328,]
+1758376602328,Looking for sessionId: 29d67251-c804-4f75-adba-11ccf82852ea
+1758376602328,Looking up existing session: 29d67251-c804-4f75-adba-11ccf82852ea
+1758376602328,Available sessions: [
+1758376602328,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376602328,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376602328,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376602328,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376602328,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376602328,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376602328,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376602328,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376602328,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376602328,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376602328,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376602328,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376602328,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376602328,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376602328,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376602328,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376602328,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376602328,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376602328,]
+1758376602328,Transport not found for sessionId 29d67251-c804-4f75-adba-11ccf82852ea. Available sessions: [
+1758376602328,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376602328,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376602328,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376602328,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376602328,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376602328,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376602328,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376602328,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376602328,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376602328,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376602328,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376602328,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376602328,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376602328,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376602328,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376602328,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376602328,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376602328,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376602328,]
+1758376603709,POST /mcp request for endpoint: m2m-arc
+1758376603709,Authentication method: oauth
+1758376603709,Session ID: 6b39faa1-3ffa-4a21-9600-d8f7f0f1bb05
+1758376603709,Available session IDs: [
+1758376603709,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376603709,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376603709,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376603709,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376603709,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376603709,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376603709,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376603709,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376603709,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376603709,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376603709,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376603709,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376603709,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376603709,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376603709,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376603709,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376603709,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376603709,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376603709,]
+1758376603709,Looking for sessionId: 6b39faa1-3ffa-4a21-9600-d8f7f0f1bb05
+1758376603709,Looking up existing session: 6b39faa1-3ffa-4a21-9600-d8f7f0f1bb05
+1758376603709,Available sessions: [
+1758376603709,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376603709,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376603709,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376603709,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376603709,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376603709,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376603709,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376603709,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376603709,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376603709,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376603709,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376603709,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376603709,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376603709,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376603709,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376603709,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376603709,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376603709,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376603709,]
+1758376603709,Transport not found for sessionId 6b39faa1-3ffa-4a21-9600-d8f7f0f1bb05. Available sessions: [
+1758376603709,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376603709,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376603709,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376603709,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376603709,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376603709,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376603709,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376603709,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376603709,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376603709,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376603709,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376603709,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376603709,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376603709,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376603709,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376603709,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376603709,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376603709,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376603709,]
+1758376605182,POST /mcp request for endpoint: m2m-arc
+1758376605182,Authentication method: oauth
+1758376605182,Session ID: fb53c794-b786-45d1-9fdb-73632bdb85be
+1758376605182,Available session IDs: [
+1758376605182,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376605182,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376605182,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376605182,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376605182,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376605182,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376605182,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376605182,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376605182,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376605182,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376605182,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376605182,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376605182,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376605182,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376605182,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376605182,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376605182,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376605182,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376605182,]
+1758376605182,Looking for sessionId: fb53c794-b786-45d1-9fdb-73632bdb85be
+1758376605182,Looking up existing session: fb53c794-b786-45d1-9fdb-73632bdb85be
+1758376605182,Available sessions: [
+1758376605182,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376605182,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376605182,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376605182,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376605182,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376605182,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376605182,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376605182,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376605182,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376605182,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376605182,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376605182,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376605182,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376605182,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376605182,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376605182,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376605182,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376605182,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376605182,]
+1758376605182,Transport not found for sessionId fb53c794-b786-45d1-9fdb-73632bdb85be. Available sessions: [
+1758376605182,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376605182,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376605182,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376605182,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376605182,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376605182,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376605182,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376605182,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376605182,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376605182,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376605182,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376605182,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376605182,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376605182,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376605182,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376605182,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376605182,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376605182,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376605182,]
+1758376606153,POST /mcp request for endpoint: m2m-arc
+1758376606153,Authentication method: oauth
+1758376606153,Session ID: e10fecd4-95dc-48a4-a18c-1b4ec0a8df47
+1758376606153,Available session IDs: [
+1758376606153,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376606153,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376606153,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376606153,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376606153,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376606153,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376606153,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376606153,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376606153,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376606153,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376606153,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376606153,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376606153,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376606153,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376606153,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376606153,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376606153,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376606153,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376606153,]
+1758376606153,Looking for sessionId: e10fecd4-95dc-48a4-a18c-1b4ec0a8df47
+1758376606153,Looking up existing session: e10fecd4-95dc-48a4-a18c-1b4ec0a8df47
+1758376606153,Available sessions: [
+1758376606153,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376606153,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376606153,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376606153,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376606153,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376606153,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376606153,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376606153,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376606153,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376606153,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376606153,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376606153,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376606153,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376606153,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376606153,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376606153,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376606153,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376606153,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376606153,]
+1758376606154,Transport not found for sessionId e10fecd4-95dc-48a4-a18c-1b4ec0a8df47. Available sessions: [
+1758376606154,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376606154,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376606154,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376606154,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376606154,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376606154,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376606154,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376606154,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376606154,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376606154,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376606154,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376606154,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376606154,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376606154,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376606154,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376606154,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376606154,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376606154,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376606154,]
+1758376611069,Received DELETE message for public endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e sessionId 43744c35-625a-4f07-ab46-b208887ad679
+1758376611071,Starting cleanup for session 43744c35-625a-4f07-ab46-b208887ad679
+1758376611071,Available sessions before cleanup: [
+1758376611071,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376611071,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376611071,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376611071,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376611071,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376611071,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376611071,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376611071,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376611071,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376611071,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376611071,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376611071,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376611071,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376611071,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376611071,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376611071,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376611071,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376611071,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376611071,]
+1758376611071,Cleaning up StreamableHTTP session 43744c35-625a-4f07-ab46-b208887ad679
+1758376611071,No transport found for session 43744c35-625a-4f07-ab46-b208887ad679
+1758376611071,Session 43744c35-625a-4f07-ab46-b208887ad679 cleanup completed successfully
+1758376611071,Public endpoint session 43744c35-625a-4f07-ab46-b208887ad679 cleaned up successfully
+1758376611071,Available sessions after cleanup: [
+1758376611071,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376611071,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376611071,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376611071,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376611071,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376611071,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376611071,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376611071,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376611071,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376611071,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376611071,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376611071,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376611071,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376611071,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376611071,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376611071,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376611071,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376611071,  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348'
+1758376611071,]
+1758376622018,New StreamableHttp connection request
+1758376622018,"Query parameters: {""url"":""https://mcpa-dev.m2mtechconnect.com/metamcp/m2m-arc/mcp"",""transportType"":""STREAMABLE_HTTP""}"
+1758376622027,Created StreamableHttp server transport
+1758376622027,Created StreamableHttp client transport
+1758376622028,Client <-> Proxy  sessionId: d90e3d74-ee3c-4790-a069-518cda67198e
+1758376622145,POST /mcp request for endpoint: m2m-arc
+1758376622145,Authentication method: oauth
+1758376622145,Session ID: new session
+1758376622145,New public endpoint StreamableHttp connection request for m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376622145,Generated new session ID: dcf2e1f0-599f-4468-9ef8-3e0a7c87f198 for endpoint: m2m-arc
+1758376622145,"Converted idle MetaMCP server to active for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e, session dcf2e1f0-599f-4468-9ef8-3e0a7c87f198"
+1758376622146,Using MetaMCP server instance for public endpoint session dcf2e1f0-599f-4468-9ef8-3e0a7c87f198 (endpoint: m2m-arc)
+1758376622146,Created public endpoint StreamableHttp transport
+1758376622146,Session dcf2e1f0-599f-4468-9ef8-3e0a7c87f198 will be cleaned up when DELETE request is received
+1758376622146,Public Endpoint Client <-> Proxy sessionId: dcf2e1f0-599f-4468-9ef8-3e0a7c87f198 for endpoint m2m-arc -> namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376622146,Stored transport for sessionId: dcf2e1f0-599f-4468-9ef8-3e0a7c87f198
+1758376622146,Current stored sessions: [
+1758376622146,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758376622146,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758376622146,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758376622146,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758376622146,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758376622146,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758376622146,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758376622146,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758376622146,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758376622146,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758376622146,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758376622146,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758376622146,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758376622146,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758376622146,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758376622146,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758376622146,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758376622146,"  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348',"
+1758376622146,  'dcf2e1f0-599f-4468-9ef8-3e0a7c87f198'
+1758376622146,]
+1758376622146,Total active sessions: 19
+1758376622146,Created background idle MetaMCP server for namespace 1cded0b5-9be1-4b16-a18f-deceb2eead0e
+1758376622150,Session initialized for sessionId: dcf2e1f0-599f-4468-9ef8-3e0a7c87f198
+1758376622169,Proxy  <-> Server sessionId: dcf2e1f0-599f-4468-9ef8-3e0a7c87f198
+1758376867369,Cleaned up expired OAuth codes and tokens
+1758377167369,Cleaned up expired OAuth codes and tokens
+1758377411630,POST /mcp request for endpoint: m2m-arc
+1758377411630,Authentication method: oauth
+1758377411630,Session ID: 1bc69ce2-b56f-434c-ac80-10846c556c09
+1758377411630,Available session IDs: [
+1758377411630,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758377411630,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758377411630,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758377411630,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758377411630,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758377411630,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758377411630,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758377411630,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758377411630,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758377411630,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758377411630,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758377411630,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758377411630,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758377411630,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758377411630,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758377411630,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758377411630,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758377411630,"  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348',"
+1758377411630,  'dcf2e1f0-599f-4468-9ef8-3e0a7c87f198'
+1758377411630,]
+1758377411630,Looking for sessionId: 1bc69ce2-b56f-434c-ac80-10846c556c09
+1758377411630,Looking up existing session: 1bc69ce2-b56f-434c-ac80-10846c556c09
+1758377411630,Available sessions: [
+1758377411630,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758377411630,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758377411630,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758377411630,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758377411630,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758377411630,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758377411630,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758377411630,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758377411630,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758377411630,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758377411630,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758377411630,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758377411630,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758377411630,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758377411630,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758377411630,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758377411630,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758377411630,"  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348',"
+1758377411630,  'dcf2e1f0-599f-4468-9ef8-3e0a7c87f198'
+1758377411630,]
+1758377411630,Transport not found for sessionId 1bc69ce2-b56f-434c-ac80-10846c556c09. Available sessions: [
+1758377411630,"  'b09f6fe5-612e-4710-b2be-2e68e97720ca',"
+1758377411630,"  'bb2b6b77-4641-46ac-8a6c-d4fe70420f83',"
+1758377411630,"  '45766637-6341-4c51-808d-ce39b641bff0',"
+1758377411630,"  '63f5867b-e7da-4ae6-92fa-877f1af405ab',"
+1758377411630,"  '7b644951-c56b-4ddc-8359-cc8a155ae798',"
+1758377411630,"  'da4e2abb-c9f1-4e9f-a135-783fbf50cd84',"
+1758377411630,"  '8d090440-e923-4646-b53e-17f0202c4e2e',"
+1758377411630,"  'a7897df7-16aa-482c-9b86-853372668137',"
+1758377411630,"  '0a617bfb-5a68-4abd-889f-4863adb1d74e',"
+1758377411630,"  '457e7d5f-c33f-4c1f-9b7d-16fba13af5e2',"
+1758377411630,"  'ea64794b-2949-483e-8bb5-f51ca9a004fb',"
+1758377411630,"  'c6a18479-57cb-4e76-a922-d7648c84216d',"
+1758377411630,"  '4cc6b552-b002-4b66-ba35-511aa556fde2',"
+1758377411630,"  'edd454d7-e88b-45fb-a102-ce16a50449eb',"
+1758377411630,"  '82e2e5f7-79d6-45c1-8412-6beb613bbfb7',"
+1758377411630,"  '31758b7d-609d-4b1c-ba13-32ba6b280bb0',"
+1758377411630,"  'a6d1a746-6eea-4e6d-9c7a-ee3cdbbc8729',"
+1758377411630,"  '71b18f5d-b7d6-4aab-aa41-e66bbd99a348',"
+1758377411630,  'dcf2e1f0-599f-4468-9ef8-3e0a7c87f198'
+1758377411630,]
+1758377467367,Cleaned up expired OAuth codes and tokens

@@ -136,22 +136,29 @@ export const createServer = async (
       }
     }
 
+    // Check for forceRefresh param - invalidates cache to fetch fresh data from upstream
+    if (request.params?.forceRefresh === true) {
+      paginationLog.info(
+        `Force refresh requested for namespace ${context.namespaceUuid.slice(0, 8)}`,
+      );
+      invalidateNamespaceCache(context.namespaceUuid);
+    }
+
     let allTools: Tool[];
 
     // Step 1: Check namespace-level cache (shared across all sessions)
-    // Debug: Log the exact namespace UUID being used
-    console.log(`[DEBUG] Handler checking cache for namespaceUuid: ${context.namespaceUuid}`);
+    paginationLog.debug(`Checking cache for namespace ${context.namespaceUuid.slice(0, 8)}`);
     const namespaceCached = getNamespaceTools(context.namespaceUuid);
 
     if (namespaceCached) {
       // Namespace cache hit - use cached tools directly
       // Skip building session mappings here - they will be built lazily
       // when tools are actually called (call_tool handler has fallback routing)
-      console.log(`[Pagination] Cache HIT: returning ${namespaceCached.length} tools (mappings will be built lazily)`);
+      paginationLog.debug(`Cache HIT: returning ${namespaceCached.length} tools`);
       allTools = namespaceCached;
     } else {
       // Namespace cache miss - warm cache using deduplication
-      console.log(`[Pagination] Cache MISS: warming cache for namespace ${context.namespaceUuid.slice(0, 8)}...`);
+      paginationLog.info(`Cache MISS: warming cache for namespace ${context.namespaceUuid.slice(0, 8)}...`);
 
       // warmNamespaceCache handles concurrent request deduplication
       // Note: We skip building mappings here - they will be built lazily when tools are called
@@ -169,7 +176,7 @@ export const createServer = async (
       );
 
       allTools = fetchedTools;
-      console.log(`[Pagination] Warming complete: ${allTools.length} tools`);
+      paginationLog.info(`Warming complete: ${allTools.length} tools`);
     }
 
     // Apply pagination: slice the tools array based on offset and page size

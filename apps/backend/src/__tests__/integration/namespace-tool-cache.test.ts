@@ -382,6 +382,124 @@ describe('Namespace Tool Cache Integration', () => {
     });
   });
 
+  describe('Force Refresh Behavior', () => {
+    /**
+     * Tests for the forceRefresh parameter in tools/list requests.
+     * When forceRefresh=true, the cache should be invalidated before fetching,
+     * ensuring fresh data from upstream MCP servers.
+     */
+    
+    it('should invalidate cache when forceRefresh is triggered', async () => {
+      const namespaceUuid = 'force-refresh-test';
+      const initialTools = createMockTools(50, 'initial');
+      const freshTools = createMockTools(75, 'fresh');
+      
+      // Pre-warm cache with initial tools
+      await warmNamespaceCache(namespaceUuid, async () => initialTools);
+      expect(getNamespaceTools(namespaceUuid)).toEqual(initialTools);
+      expect(getNamespaceTools(namespaceUuid)).toHaveLength(50);
+      
+      // Simulate forceRefresh=true behavior (what handler does):
+      // 1. Invalidate cache
+      invalidateNamespaceCache(namespaceUuid);
+      
+      // 2. Cache should now be undefined (invalidated)
+      expect(getNamespaceTools(namespaceUuid)).toBeUndefined();
+      
+      // 3. Re-warm with fresh data
+      const fetchFn = vi.fn().mockResolvedValue(freshTools);
+      await warmNamespaceCache(namespaceUuid, fetchFn);
+      
+      // Verify fresh data is now cached
+      expect(fetchFn).toHaveBeenCalledTimes(1);
+      expect(getNamespaceTools(namespaceUuid)).toEqual(freshTools);
+      expect(getNamespaceTools(namespaceUuid)).toHaveLength(75);
+      expect(getNamespaceTools(namespaceUuid)![0].name).toContain('fresh');
+    });
+    
+    it('should use existing cache when forceRefresh is not set', async () => {
+      const namespaceUuid = 'no-force-refresh';
+      const tools = createMockTools(100);
+      
+      // Pre-warm cache
+      const initialFetch = vi.fn().mockResolvedValue(tools);
+      await warmNamespaceCache(namespaceUuid, initialFetch);
+      expect(initialFetch).toHaveBeenCalledTimes(1);
+      
+      // Simulate normal request (no forceRefresh):
+      // Just check cache - should hit
+      const cachedTools = getNamespaceTools(namespaceUuid);
+      expect(cachedTools).toEqual(tools);
+      
+      // No additional fetch should happen
+      const secondFetch = vi.fn().mockResolvedValue(createMockTools(200));
+      const result = await warmNamespaceCache(namespaceUuid, secondFetch);
+      
+      // Should NOT call second fetch - cache is still valid
+      expect(secondFetch).not.toHaveBeenCalled();
+      expect(result).toHaveLength(100); // Original tools
+    });
+    
+    it('should re-warm cache after force refresh with new data', async () => {
+      const namespaceUuid = 'rewarm-after-force';
+      
+      // Track tool versions
+      let toolVersion = 1;
+      const getVersionedTools = () => createMockTools(50 + toolVersion * 10, `v${toolVersion}`);
+      
+      // Initial cache with v1 tools
+      await warmNamespaceCache(namespaceUuid, async () => getVersionedTools());
+      expect(getNamespaceTools(namespaceUuid)).toHaveLength(60); // 50 + 1*10
+      expect(getNamespaceTools(namespaceUuid)![0].name).toContain('v1');
+      
+      // Simulate "upstream adds new tools"
+      toolVersion = 2;
+      
+      // Force refresh flow:
+      // 1. Invalidate
+      invalidateNamespaceCache(namespaceUuid);
+      
+      // 2. Re-warm (simulates what handler does after invalidation)
+      await warmNamespaceCache(namespaceUuid, async () => getVersionedTools());
+      
+      // 3. Verify new data
+      expect(getNamespaceTools(namespaceUuid)).toHaveLength(70); // 50 + 2*10
+      expect(getNamespaceTools(namespaceUuid)![0].name).toContain('v2');
+    });
+    
+    it('should handle concurrent force refresh requests', async () => {
+      const namespaceUuid = 'concurrent-force-refresh';
+      const tools = createMockTools(100);
+      let fetchCount = 0;
+      
+      const slowFetch = vi.fn().mockImplementation(async () => {
+        fetchCount++;
+        await new Promise(resolve => setTimeout(resolve, 50));
+        return tools;
+      });
+      
+      // Pre-warm initially
+      await warmNamespaceCache(namespaceUuid, slowFetch);
+      expect(fetchCount).toBe(1);
+      
+      // Invalidate (force refresh)
+      invalidateNamespaceCache(namespaceUuid);
+      
+      // Start multiple concurrent re-warm requests
+      const promises = Array.from({ length: 5 }, () =>
+        warmNamespaceCache(namespaceUuid, slowFetch)
+      );
+      
+      const results = await Promise.all(promises);
+      
+      // All should get the same result
+      results.forEach(result => expect(result).toEqual(tools));
+      
+      // Only one additional fetch should have happened (deduplication)
+      expect(fetchCount).toBe(2); // Initial + 1 for all concurrent
+    });
+  });
+
   describe('Background Refresh', () => {
     it('should start background refresh when warming cache', async () => {
       const namespaceUuid = 'background-refresh-test';

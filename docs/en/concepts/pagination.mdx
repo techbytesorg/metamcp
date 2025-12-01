@@ -123,9 +123,23 @@ Example timeline (1-hour TTL):
 
 For immediate refresh without waiting for TTL:
 
-1. **Edit MCP server config** - Any change (even reverting) triggers invalidation
-2. **Restart MetaMCP** - Clears all caches and pre-warms fresh data
-3. **Shorter TTL** - Set `MCP_TOOLS_CACHE_TTL=300` for 5-minute refresh
+1. **Force Refresh** - Pass `forceRefresh: true` in `list_tools()` request
+2. **Edit MCP server config** - Any change (even reverting) triggers invalidation
+3. **Restart MetaMCP** - Clears all caches and pre-warms fresh data
+4. **Shorter TTL** - Set `MCP_TOOLS_CACHE_TTL=300` for 5-minute refresh
+
+### Force Refresh API
+
+Request fresh tools from upstream, bypassing cache:
+
+```
+Request: { method: "tools/list", params: { forceRefresh: true } }
+```
+
+- Invalidates namespace cache before fetching
+- Fetches fresh data from all upstream MCP servers
+- Re-warms cache with new data
+- Used by "Refresh Tools" button in MetaMCP UI
 
 ### Recommendations
 
